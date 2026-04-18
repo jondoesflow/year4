@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 4 Computing — Selection, Variables &amp; the Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://umami.jondoesflow.com/script.js" data-website-id="3c30c87e-f390-419b-9386-87aa62677c15"></script>
+  <script defer src="tracking.js"></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back-link" href="Year4.html">&larr; Year 4</a>
+</div>
+
+<header class="hero">
+  <div class="kicker">Year 4 · Key Stage 2</div>
+  <h1><span class="accent-indigo">Computing</span><br>Selection, Variables &amp; the Web</h1>
+  <p class="tagline">Six topics from the Year 4 Computing curriculum.</p>
+  <div class="hero-actions">
+    <button class="read-btn" data-read="Year 4 Computing. Selection, Variables &amp; the Web. Six topics from the Year 4 Computing curriculum.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read this page aloud</span>
+    </button>
+    <button class="read-btn start" data-goto="selection">Start reading &rarr;</button>
+  </div>
+  <div class="glyph-strip" aria-hidden="true">
+    <div class="glyph" style="background:var(--indigo);color:var(--cream);">💻</div>
+    <div class="glyph" style="background:var(--terracotta);color:#fff;"><></div>
+    <div class="glyph" style="background:var(--jade);color:var(--cream);">🤖</div>
+    <div class="glyph" style="background:var(--ochre);color:var(--ink);">🔒</div>
+    <div class="glyph">🌐</div>
+  </div>
+</header>
+
+<div class="band"></div>
+
+<nav class="tabs" aria-label="Topics">
+  <div class="tabs-inner" role="tablist">
+    <button class="tab" role="tab" data-tab="selection" aria-selected="true">Selection</button>
+    <button class="tab" role="tab" data-tab="variables" aria-selected="false">Variables</button>
+    <button class="tab" role="tab" data-tab="networks-4" aria-selected="false">How the Internet Works</button>
+    <button class="tab" role="tab" data-tab="data" aria-selected="false">Data</button>
+    <button class="tab" role="tab" data-tab="safety-4" aria-selected="false">Online Safety</button>
+    <button class="tab" role="tab" data-tab="practice" aria-selected="false">Practice</button>
+  </div>
+</nav>
+
+<main>
+
+<section id="selection" class="page">
+  <span class="pill terra">Topic 1</span>
+  <h2>Selection (If…Then)</h2>
+  <p class="lead">Making programs think and choose.</p>
+<div class="prose"><p>So far, our programs have done the same thing no matter what. In Year 4 we learn <strong>selection</strong> — making the computer choose what to do next based on something. We use an <strong>if…then</strong> statement:</p><p style="padding:10px 14px; background:#fff8e8; border-radius:10px;"><strong>IF</strong> the score is 10 <strong>THEN</strong> play a cheer sound</p><p>In Scratch, the if-then block has a diamond-shaped hole where you drop in a question (like “is the score 10?”) and a space inside where you put the instructions to run when the answer is YES.</p><p>Selection makes games much more interesting. If the player touches the green flag, win. If they touch the bat, lose. Without if-then, every game would play exactly the same every time.</p><button class="read-btn" data-read="In Year 4 we learn selection: making the computer choose what to do next. We use an if-then statement. If the score is ten, then play a cheer sound. Selection makes games interesting because the program can respond differently to different situations."><span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span></button></div>
+</section>
+
+<section id="variables" class="page cream2-section">
+  <span class="pill jade">Topic 2</span>
+  <h2>Variables</h2>
+  <p class="lead">Places to store information.</p>
+<div class="prose"><p>A <strong>variable</strong> is a named container that holds a value. The value can change as the program runs. In a game, you might have a variable called <strong>score</strong> that starts at 0 and goes up every time you catch something.</p><p>To use variables you need to:</p><ul><li><strong>Create</strong> the variable and give it a name.</li><li><strong>Set</strong> its starting value.</li><li><strong>Change</strong> it during the program (add to it, subtract from it).</li><li><strong>Use</strong> it somewhere (show it on screen, compare it in an if statement).</li></ul><p>Variables can hold numbers (score: 15) or text (player-name: “Esme”). They’re everywhere in code.</p><button class="read-btn" data-read="A variable is a named container that holds a value. The value can change as the program runs. In a game, you might have a variable called score that starts at zero and goes up every time you catch something. Variables can hold numbers or text."><span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span></button></div>
+</section>
+
+<section id="networks-4" class="page">
+  <span class="pill indigo">Topic 3</span>
+  <h2>How the Internet Works</h2>
+  <p class="lead">Packets, servers and browsers.</p>
+<div class="prose"><p>When you type a web address into a <strong>browser</strong> (like Chrome or Safari) and press Enter, a lot happens in half a second:</p><ol><li>Your browser asks a special service (called a <strong>DNS</strong>) to look up the address.</li><li>It sends a request across the internet to a computer called a <strong>server</strong>.</li><li>The server fires back the web page, broken into tiny packages called <strong>packets</strong>.</li><li>The packets arrive at your computer and the browser puts them back together into the page you see.</li></ol><p>The internet isn’t one single wire — it’s a huge web of cables, fibre, satellites and radio links. Your message could take hundreds of different routes and still arrive safely.</p><button class="read-btn" data-read="When you type a web address and press enter, a lot happens in half a second. Your browser asks a DNS to look up the address. It sends a request to a server. The server sends back the web page broken into packets. The packets arrive and your browser puts them back together. The internet isn't one wire but a huge web of cables, fibre, satellites, and radio links."><span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span></button></div>
+</section>
+
+<section id="data" class="page cream2-section">
+  <span class="pill ochre">Topic 4</span>
+  <h2>Data &amp; Spreadsheets</h2>
+  <p class="lead">Organising information with numbers and words.</p>
+<div class="prose"><p><strong>Data</strong> is a fancy word for information. Numbers, words, photos, sounds — all data. Computers are brilliant at storing and sorting huge amounts of data.</p><p>A <strong>spreadsheet</strong> is a grid of <strong>cells</strong>. Each cell holds one piece of data. Cells are arranged in columns (named with letters: A, B, C) and rows (numbered: 1, 2, 3). Cell B3 is the cell in column B, row 3.</p><p>Spreadsheets can do clever maths automatically. Type =A1+A2 in a cell, and the spreadsheet works out the answer. Change A1 or A2, and the sum updates instantly. This makes spreadsheets brilliant for budgets, tables, and charts.</p><button class="read-btn" data-read="Data is a fancy word for information. Computers are brilliant at storing and sorting huge amounts of data. A spreadsheet is a grid of cells. Each cell holds one piece of data. Cells are in columns and rows. Cell B3 is the cell in column B, row 3. Spreadsheets can do clever maths automatically."><span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span></button></div>
+</section>
+
+<section id="safety-4" class="page dark-section">
+  <span class="pill ochre">Topic 5</span>
+  <h2>Being a Good Digital Citizen</h2>
+  <p class="lead">Your behaviour online counts.</p>
+<div class="prose"><p>As you spend more time online, you become a <strong class="high">digital citizen</strong>. Being a good one matters. Rules for Year 4:</p><ul><li><strong class="high">Check your sources.</strong> Is this website trustworthy? Is it trying to sell you something?</li><li><strong class="high">Copyright matters.</strong> You can’t just copy a photo or a song off the internet. Someone made it. Look for ones labelled “Creative Commons” which are free to use.</li><li><strong class="high">Digital footprint.</strong> Everything you post online stays there, maybe forever. Would you be happy for your granny to see this?</li><li><strong class="high">Fake news is real.</strong> Many online things are made up to trick people. A shocking headline isn’t proof of anything.</li></ul><button class="read-btn" data-read="Year 4 online safety. Check your sources. Copyright matters: you can't just copy a photo or song. Your digital footprint: everything you post stays online, maybe forever. Would your granny be happy to see it? Fake news is real: many online things are made up to trick people."><span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span></button></div>
+</section>
+
+<section id="practice" class="page cream2-section">
+  <span class="pill indigo">Practice</span>
+  <h2>Test Yourself!</h2>
+  <p class="lead">Ten questions about Computing. They change every time you reload.</p>
+  <div id="quiz-wrap" style="display:grid; gap:24px;"></div>
+  <div id="quiz-score"></div>
+  <p style="margin-top:24px; color:var(--ink-soft); font-style: italic;">Reload the page for a fresh set.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Year 4 Computing &middot; Key Stage 2.</strong> Covers selection (if-then), variables, how the internet actually works (browsers, DNS, servers, packets), spreadsheets and data, and digital citizenship (sources, copyright, footprint, fake news).</p>
+  <p><a href="Year4.html">&larr; Back to Year 4</a> &middot; <a href="index.html">Home</a></p>
+</footer>
+
+<script>
+
+(function() {
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab) { tab.addEventListener('click', function() { var t = document.getElementById(tab.getAttribute('data-tab')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+  var sections = document.querySelectorAll('section.page');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { var id = e.target.id; tabs.forEach(function(t) { t.setAttribute('aria-selected', t.getAttribute('data-tab') === id ? 'true' : 'false'); }); } });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s) { io.observe(s); });
+  document.querySelectorAll('[data-goto]').forEach(function(btn) { btn.addEventListener('click', function() { var t = document.getElementById(btn.getAttribute('data-goto')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+
+  if (!('speechSynthesis' in window)) {
+    document.querySelectorAll('[data-read]').forEach(function(btn) { btn.disabled = true; btn.title = 'Your browser does not support read-aloud.'; btn.style.opacity = '0.5'; });
+  } else {
+    var synth = window.speechSynthesis, preferredVoice = null, keepAliveTimer = null, currentBtn = null;
+    function pickVoice() { var v = synth.getVoices(); preferredVoice = v.find(function(x) { return /en[-_]GB/i.test(x.lang); }) || v.find(function(x) { return /^en/i.test(x.lang); }) || v[0] || null; }
+    pickVoice();
+    if (typeof synth.onvoiceschanged !== 'undefined') synth.addEventListener('voiceschanged', pickVoice);
+    function keepAlive() { clearTimeout(keepAliveTimer); if (synth.speaking) { synth.pause(); synth.resume(); keepAliveTimer = setTimeout(keepAlive, 8000); } }
+    function resetBtn(btn) { btn.setAttribute('aria-pressed', 'false'); var lbl = btn.querySelector('.read-label'); if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig; }
+    document.querySelectorAll('[data-read]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (synth.paused) synth.resume();
+        if (currentBtn === btn) { synth.cancel(); clearTimeout(keepAliveTimer); resetBtn(btn); currentBtn = null; return; }
+        if (currentBtn) resetBtn(currentBtn); synth.cancel(); clearTimeout(keepAliveTimer);
+        var u = new SpeechSynthesisUtterance(btn.getAttribute('data-read')); u.rate = 0.9; u.pitch = 1.0; u.volume = 1.0;
+        if (preferredVoice) u.voice = preferredVoice;
+        u.onend = function() { clearTimeout(keepAliveTimer); resetBtn(btn); if (currentBtn === btn) currentBtn = null; };
+        u.onerror = u.onend;
+        btn.setAttribute('aria-pressed', 'true');
+        var lbl = btn.querySelector('.read-label'); if (lbl) { if (!lbl.dataset.orig) lbl.dataset.orig = lbl.textContent; lbl.textContent = 'Stop'; }
+        currentBtn = btn;
+        setTimeout(function() { synth.speak(u); keepAlive(); }, 50);
+      });
+    });
+    window.addEventListener('beforeunload', function() { try { synth.cancel(); } catch (e) {} });
+  }
+  document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('error', function() {
+      var ph = document.createElement('div'); ph.className = 'placeholder';
+      ph.style.minHeight = (this.clientHeight || 220) + 'px';
+      var lbl = document.createElement('span'); lbl.className = 'label'; lbl.textContent = 'Photo: ' + (this.alt || this.getAttribute('src') || 'missing');
+      ph.appendChild(lbl); this.replaceWith(ph);
+    });
+  });
+
+
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var POOL = [{"topic": "Selection", "q": "What does an if-then statement do?", "opts": ["Makes the computer choose based on a condition", "Always runs the same code", "Breaks the program", "Saves a file"], "answer": 0, "note": "If-then = conditional selection."}, {"topic": "Variables", "q": "What is a variable?", "opts": ["A kind of animal", "A named container that holds a value", "A program name", "A keyboard"], "answer": 1, "note": "Variables store values that can change."}, {"topic": "Variables", "q": "Which of these is a good variable name?", "opts": ["score", "x7", "a", "?"], "answer": 0, "note": "Descriptive names like \"score\" are best."}, {"topic": "Internet", "q": "What is a web browser?", "opts": ["A robot", "A program to view web pages (like Chrome)", "A type of cable", "A website"], "answer": 1, "note": "Chrome, Safari, Firefox are browsers."}, {"topic": "Internet", "q": "What are web pages broken into to travel across the internet?", "opts": ["Boxes", "Pages", "Packets", "Papers"], "answer": 2, "note": "Data travels in packets."}, {"topic": "Internet", "q": "What is a DNS?", "opts": ["A search engine", "A service that looks up website addresses", "A computer virus", "A programmer"], "answer": 1, "note": "DNS = Domain Name System, like a phonebook for the web."}, {"topic": "Data", "q": "What is data?", "opts": ["Information", "A person\u2019s name", "A type of program", "A cable"], "answer": 0, "note": "Data = information in any form."}, {"topic": "Spreadsheets", "q": "In a spreadsheet, what is cell B3?", "opts": ["Column 3, row B", "Column B, row 3", "The name of a spreadsheet", "A type of formula"], "answer": 1, "note": "Columns use letters, rows use numbers. B3 = column B, row 3."}, {"topic": "Safety", "q": "Is everything you post online permanent?", "opts": ["Yes, it can stay forever", "No, it all goes away", "Only if you are young", "Only on Sundays"], "answer": 0, "note": "Digital footprints can stay online forever."}, {"topic": "Safety", "q": "Can you copy a photo off the internet for your own project?", "opts": ["Yes, everything is free", "Not always \u2014 check if it\u2019s copyright-free", "Only on birthdays", "Only if you ask the computer"], "answer": 1, "note": "Check the copyright. Use Creative Commons images where possible."}];
+  var COUNT = 10;
+  var chosen = shuffle(POOL).slice(0, COUNT);
+  var answered = 0, score = 0;
+  var quizWrap = document.getElementById('quiz-wrap');
+  var scoreEl = document.getElementById('quiz-score');
+  chosen.forEach(function(data, i) {
+    var card = document.createElement('div'); card.className = 'quiz';
+    var pill = document.createElement('span'); pill.className = 'pill ochre'; pill.textContent = 'Q' + (i + 1) + ' \u00B7 ' + data.topic;
+    var h3 = document.createElement('h3'); h3.textContent = data.q;
+    card.appendChild(pill); card.appendChild(h3);
+    var explain = document.createElement('p'); explain.className = 'explain';
+    data.opts.forEach(function(o, oi) {
+      var b = document.createElement('button'); b.className = 'opt'; b.textContent = String.fromCharCode(65 + oi) + '. ' + o;
+      b.addEventListener('click', function() {
+        if (card.dataset.answered) return;
+        card.dataset.answered = '1';
+        card.querySelectorAll('.opt').forEach(function(bb, bi) {
+          bb.disabled = true;
+          if (bi === data.answer) bb.classList.add('correct');
+          else if (bi === oi) bb.classList.add('wrong');
+        });
+        var correct = oi === data.answer;
+        if (correct) score++; answered++;
+        explain.textContent = (correct ? '\u2713 Yes! ' : 'Almost! The answer is ' + data.opts[data.answer] + '. ') + (data.note || '');
+        explain.classList.add('show');
+        updateScore();
+      });
+      card.appendChild(b);
+    });
+    card.appendChild(explain);
+    quizWrap.appendChild(card);
+  });
+  function updateScore() {
+    if (answered !== chosen.length) return;
+    var box = document.createElement('div'); box.className = 'card quiz-score-box';
+    var h3 = document.createElement('h3'); h3.textContent = 'You got ' + score + ' out of ' + chosen.length + '!';
+    var p = document.createElement('p'); p.style.cssText = 'margin:0;';
+    p.textContent = score === chosen.length ? '\uD83C\uDF1F Perfect!' : score >= Math.ceil(chosen.length * 0.7) ? 'Super work!' : score >= Math.ceil(chosen.length * 0.4) ? 'Good try! Reload for a fresh mix.' : 'Keep going! Reload and try again.';
+    box.appendChild(h3); box.appendChild(p);
+    scoreEl.innerHTML = ''; scoreEl.appendChild(box);
+  }
+})();
+
+</script>
+
+</body>
+</html>
