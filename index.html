@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explorations &mdash; Year 2 &amp; Year 4</title>
+  <title>Explorations &mdash; UK Primary, Years 1 to 6</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,19 +12,19 @@
     .year-grid {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 40px 80px;
+      padding: 24px 40px 40px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
     .year-card {
       display: block;
-      padding: 40px 36px;
+      padding: 30px 28px;
       border: 2px solid var(--ink);
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: 6px 6px 0 var(--ink);
       text-decoration: none;
-      min-height: 320px;
+      min-height: 240px;
       transition: transform .15s ease, box-shadow .15s ease;
       position: relative;
       color: var(--cream);
@@ -34,62 +34,76 @@
       box-shadow: 10px 10px 0 var(--ink);
       text-decoration: none;
     }
+    .year-card.y1 { background: linear-gradient(135deg, var(--ochre) 0%, #a67a2f 100%); color: var(--ink); }
     .year-card.y2 { background: linear-gradient(135deg, var(--jade) 0%, #1e4a38 100%); }
+    .year-card.y3 { background: linear-gradient(135deg, var(--jade-light) 0%, var(--jade) 100%); }
     .year-card.y4 { background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-deep) 100%); }
+    .year-card.y5 { background: linear-gradient(135deg, var(--indigo) 0%, #1a2445 100%); }
+    .year-card.y6 { background: linear-gradient(135deg, #8b3a1f 0%, var(--terracotta) 100%); }
+    .year-card.y1 h2, .year-card.y1 p, .year-card.y1 .year-label, .year-card.y1 .year-age, .year-card.y1 .year-cta { color: var(--ink); }
+    .year-card.y1 .year-label { background: rgba(0,0,0,0.15); }
+    .year-card.y1 .year-cta { border-bottom-color: rgba(42,30,18,0.4); }
     .year-card .year-label {
       display: inline-block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       font-family: var(--font-display);
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      padding: 6px 14px;
+      padding: 4px 12px;
       background: rgba(0,0,0,0.25);
       border-radius: 999px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       color: var(--cream);
     }
     .year-card h2 {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(44px, 5vw, 64px);
+      font-size: 40px;
       color: var(--cream);
-      margin: 0 0 14px;
+      margin: 0 0 6px;
       line-height: 1;
+    }
+    .year-card .year-age {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      color: var(--cream);
+      opacity: 0.85;
+      margin: 0 0 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
     .year-card p {
       color: var(--cream);
       opacity: 0.95;
-      margin: 0 0 20px;
+      margin: 0 0 16px;
       max-width: 40ch;
-      font-size: 18px;
-    }
-    .year-card .year-subjects {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin: 0 0 26px;
-    }
-    .year-card .year-chip {
-      display: inline-block;
-      padding: 4px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      font-family: var(--font-display);
-      background: rgba(0,0,0,0.25);
-      border-radius: 999px;
-      color: var(--cream);
+      font-size: 16px;
     }
     .year-card .year-cta {
       display: inline-block;
       font-weight: 700;
       letter-spacing: 0.06em;
-      font-size: 18px;
+      font-size: 16px;
       border-bottom: 2px solid rgba(255,250,240,0.6);
       padding-bottom: 2px;
       color: var(--cream);
     }
+    .key-stage-heading {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta-deep);
+    }
     @media (max-width: 820px) {
-      .year-grid { grid-template-columns: 1fr; padding: 16px 24px 60px; }
-      .year-card { min-height: 240px; padding: 32px 28px; }
+      .year-grid { padding: 16px 24px 24px; }
+      .key-stage-heading { padding: 0 24px; margin-top: 24px; }
     }
   </style>
   <script defer src="https://umami.jondoesflow.com/script.js" data-website-id="3c30c87e-f390-419b-9386-87aa62677c15"></script>
@@ -98,11 +112,12 @@
 <body>
 
 <header class="hero">
-  <div class="kicker">A Primary Learning Website</div>
+  <div class="kicker">A UK Primary Learning Website</div>
   <h1><span class="accent">Explorations</span></h1>
   <p class="tagline">
-    A dyslexia-friendly guide to the UK primary curriculum, with friendly chapters,
-    read-aloud buttons, and fresh practice questions on every visit.
+    A dyslexia-friendly guide to the UK primary curriculum, from Year 1 to
+    Year 6. Friendly chapters, read-aloud buttons, and fresh practice questions
+    on every visit.
   </p>
   <div class="glyph-strip" aria-hidden="true">
     <div class="glyph" style="background:var(--terracotta);color:#fff;">&#8721;</div>
@@ -115,33 +130,57 @@
 
 <div class="band"></div>
 
-<main class="year-grid" aria-label="Year groups">
+<h3 class="key-stage-heading">Key Stage 1</h3>
+<main class="year-grid" aria-label="Key Stage 1 year groups">
+  <a class="year-card y1" href="Year1.html">
+    <span class="year-label">Key Stage 1</span>
+    <h2>Year 1</h2>
+    <p class="year-age">Ages 5 &ndash; 6</p>
+    <p>First sounds, counting to 20, the five senses, our school, and stories from long ago.</p>
+    <span class="year-cta">Open Year 1 &rarr;</span>
+  </a>
+
   <a class="year-card y2" href="Year2.html">
     <span class="year-label">Key Stage 1</span>
     <h2>Year 2</h2>
-    <p>For ages 6 to 7. Counting, phonics, plants, the four UK countries, and how the world worked long ago.</p>
-    <div class="year-subjects">
-      <span class="year-chip">Maths</span>
-      <span class="year-chip">English</span>
-      <span class="year-chip">Science</span>
-      <span class="year-chip">History</span>
-      <span class="year-chip">Geography</span>
-    </div>
+    <p class="year-age">Ages 6 &ndash; 7</p>
+    <p>Counting to 100, phonics, plants, the four UK countries, and how the world worked long ago.</p>
     <span class="year-cta">Open Year 2 &rarr;</span>
+  </a>
+</main>
+
+<h3 class="key-stage-heading">Key Stage 2</h3>
+<main class="year-grid" aria-label="Key Stage 2 year groups">
+  <a class="year-card y3" href="Year3.html">
+    <span class="year-label">Key Stage 2</span>
+    <h2>Year 3</h2>
+    <p class="year-age">Ages 7 &ndash; 8</p>
+    <p>3, 4 and 8 times tables, prefixes &amp; suffixes, rocks, the Stone Age, and our European neighbours.</p>
+    <span class="year-cta">Open Year 3 &rarr;</span>
   </a>
 
   <a class="year-card y4" href="Year4.html">
     <span class="year-label">Key Stage 2</span>
     <h2>Year 4</h2>
-    <p>For ages 8 to 9. Times tables to 12, grammar, electricity, the Ancient Maya, and the rivers of the world.</p>
-    <div class="year-subjects">
-      <span class="year-chip">Maths</span>
-      <span class="year-chip">English</span>
-      <span class="year-chip">Science</span>
-      <span class="year-chip">History</span>
-      <span class="year-chip">Geography</span>
-    </div>
+    <p class="year-age">Ages 8 &ndash; 9</p>
+    <p>Times tables to 12, grammar, electricity, the Ancient Maya, and the rivers of the world.</p>
     <span class="year-cta">Open Year 4 &rarr;</span>
+  </a>
+
+  <a class="year-card y5" href="Year5.html">
+    <span class="year-label">Key Stage 2</span>
+    <h2>Year 5</h2>
+    <p class="year-age">Ages 9 &ndash; 10</p>
+    <p>Prime numbers, modal verbs, forces &amp; space, Ancient Greece, and the Americas.</p>
+    <span class="year-cta">Open Year 5 &rarr;</span>
+  </a>
+
+  <a class="year-card y6" href="Year6.html">
+    <span class="year-label">Key Stage 2</span>
+    <h2>Year 6</h2>
+    <p class="year-age">Ages 10 &ndash; 11</p>
+    <p>Algebra, active &amp; passive voice, evolution, World War II, and the map of the whole world.</p>
+    <span class="year-cta">Open Year 6 &rarr;</span>
   </a>
 </main>
 
