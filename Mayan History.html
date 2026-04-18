@@ -1,131 +1,949 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ancient Maya &mdash; Year 4 Explorations</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ancient Maya &mdash; A Journey Through Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5ecd7;
+      --cream-2: #ebe0c4;
+      --ink: #2a1e12;
+      --ink-soft: #4a3824;
+      --jade: #2d6a4f;
+      --jade-light: #52b788;
+      --terracotta: #c75638;
+      --terracotta-deep: #9e3b20;
+      --ochre: #d4a04b;
+      --indigo: #2c3e6b;
+      --stone: #b8a888;
+      --maxW: 62ch;
+      --lh: 1.85;
+      --fs: 20px;
+      --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+      --font-display: 'Lexend', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: var(--fs);
+      line-height: var(--lh);
+      letter-spacing: 0.02em;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(158,59,32,0.04) 0, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(45,106,79,0.05) 0, transparent 45%);
+      z-index: 0;
+    }
+    main, header, footer, nav, section { position: relative; z-index: 1; }
+    p, li { max-width: var(--maxW); }
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    a { color: var(--terracotta-deep); }
+    button { font-family: var(--font-body); font-size: inherit; cursor: pointer; }
+
+    .top-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 40px 0;
+    }
+    .back-link {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--cream-2);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 14px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .back-link:hover { background: var(--ochre); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+
+    .hero {
+      padding: 56px 40px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .kicker {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 14px;
+      color: var(--terracotta-deep);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      margin: 0 0 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .hero h1 .accent { color: var(--jade); }
+    .hero .tagline {
+      font-size: 22px;
+      color: var(--ink-soft);
+      max-width: 55ch;
+      margin: 0 0 32px;
+    }
+    .glyph-strip {
+      display: flex; gap: 14px; align-items: center;
+      margin-top: 28px;
+      opacity: 0.9;
+    }
+    .glyph {
+      width: 56px; height: 56px;
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      background: var(--cream-2);
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 26px;
+    }
+
+    .tabs {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--cream);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+    .tabs-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs-inner::-webkit-scrollbar { display: none; }
+    .tab {
+      flex: 0 0 auto;
+      padding: 16px 22px;
+      background: transparent;
+      border: none;
+      border-bottom: 4px solid transparent;
+      color: var(--ink-soft);
+      font-weight: 600;
+      white-space: nowrap;
+      font-family: var(--font-display);
+    }
+    .tab[aria-selected="true"] {
+      color: var(--ink);
+      border-bottom-color: var(--terracotta);
+      background: var(--cream-2);
+    }
+    .tab:hover { background: var(--cream-2); color: var(--ink); }
+
+    section.page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+      scroll-margin-top: 70px;
+    }
+    section.page h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    section.page .lead {
+      font-size: 22px;
+      color: var(--ink-soft);
+      max-width: 55ch;
+      margin: 0 0 40px;
+    }
+    .prose p { margin: 0 0 20px; }
+    .prose strong { color: var(--terracotta-deep); font-weight: 700; }
+    .prose ul { padding-left: 22px; }
+    .prose li { margin-bottom: 8px; }
+
+    .card {
+      background: #fff8e8;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 6px 6px 0 var(--ink);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card.clickable { cursor: pointer; text-align: left; padding: 0; overflow: hidden; width: 100%; background: #fff8e8; font: inherit; color: inherit; }
+    .card.clickable:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--ink); }
+    .card.clickable:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--ink); }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill.jade { background: var(--jade); color: var(--cream); }
+    .pill.terra { background: var(--terracotta); color: #fff; }
+    .pill.indigo { background: var(--indigo); color: var(--cream); }
+    .pill.ochre { background: var(--ochre); color: var(--ink); }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      margin: 32px 0;
+    }
+    .timeline::before {
+      content: ""; position: absolute;
+      left: 12px; top: 0; bottom: 0;
+      width: 4px; background: var(--ink);
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      padding: 20px 0 24px 24px;
+    }
+    .tl-item::before {
+      content: ""; position: absolute;
+      left: -34px; top: 28px;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--ochre);
+      border: 4px solid var(--ink);
+    }
+    .tl-item .when {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--terracotta-deep);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tl-item h3 { font-size: 24px; margin: 4px 0 8px; color: var(--ink); }
+    .tl-item p { margin: 0; color: var(--ink-soft); }
+
+    .word {
+      text-decoration: underline dotted var(--terracotta);
+      text-underline-offset: 4px;
+      cursor: help;
+      font-weight: 700;
+      color: var(--terracotta-deep);
+      position: relative;
+    }
+    .word:hover::after, .word:focus::after {
+      content: attr(data-def);
+      position: absolute;
+      left: 0; top: calc(100% + 8px);
+      background: var(--ink);
+      color: var(--cream);
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: 280px;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 400;
+      z-index: 200;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+
+    .numbers {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .bar-dot {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+      padding: 12px 14px;
+      background: var(--cream-2);
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      min-width: 68px;
+    }
+    .bar-dot .sym { display: flex; flex-direction: column; align-items: center; gap: 3px; min-height: 42px; justify-content: flex-end; }
+    .bar-dot .dots { display: flex; gap: 4px; }
+    .bar-dot .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+    .bar-dot .bar { width: 28px; height: 5px; background: var(--ink); border-radius: 2px; }
+    .bar-dot .zero { font-size: 22px; line-height: 1; }
+    .bar-dot .num { font-size: 26px; font-weight: 700; font-family: var(--font-display); }
+
+    .quiz {
+      background: var(--indigo);
+      color: var(--cream);
+      border-radius: 14px;
+      padding: 32px;
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .quiz h3 { margin: 12px 0 8px; color: var(--cream); font-size: 24px; }
+    .quiz .opt {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 14px 18px;
+      margin: 10px 0;
+      background: rgba(245,236,215,0.1);
+      border: 2px solid var(--cream);
+      border-radius: 10px;
+      color: var(--cream);
+      font-size: 18px;
+    }
+    .quiz .opt:hover:not(:disabled) { background: rgba(245,236,215,0.2); }
+    .quiz .opt.correct { background: var(--jade); border-color: var(--jade-light); }
+    .quiz .opt.wrong { background: var(--terracotta-deep); }
+    .quiz .opt:disabled { cursor: default; }
+    .quiz .explain { margin-top: 14px; padding: 12px 16px; background: rgba(245,236,215,0.15); border-radius: 10px; display: none; }
+    .quiz .explain.show { display: block; }
+
+    .read-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 16px;
+      background: var(--jade);
+      color: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .read-btn:hover { background: var(--jade-light); color: var(--ink); }
+    .read-btn[aria-pressed="true"] { background: var(--terracotta); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-actions .read-btn.start { background: var(--terracotta); }
+
+    .photo {
+      position: relative;
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 6px 6px 0 var(--ink);
+      background: var(--cream-2);
+    }
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: cover;
+    }
+    .photo .caption {
+      padding: 10px 14px;
+      font-size: 15px;
+      color: var(--ink-soft);
+      background: var(--cream);
+      border-top: 1.5px solid var(--ink);
+      font-style: italic;
+    }
+
+    .city-img {
+      height: 180px; overflow: hidden;
+      border-bottom: 2px solid var(--ink);
+      background: #2a2018;
+    }
+    .city-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .city-body { padding: 24px; }
+    .city-body h3 { margin: 12px 0 8px; font-size: 26px; color: var(--ink); }
+    .city-body p { margin: 0; color: var(--ink-soft); }
+
+    .map-placeholder {
+      position: relative;
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      background: repeating-linear-gradient(135deg, var(--cream-2) 0 14px, #e0d2ac 14px 28px);
+      display: grid; place-items: center;
+      min-height: 340px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .band {
+      height: 14px;
+      background:
+        repeating-linear-gradient(90deg,
+          var(--terracotta) 0 20px,
+          var(--ochre) 20px 40px,
+          var(--jade) 40px 60px,
+          var(--indigo) 60px 80px);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    footer.foot {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 32px 40px 60px;
+      border-top: 2px dashed var(--ink);
+      color: var(--ink-soft);
+      font-size: 16px;
+    }
+    footer.foot a { color: var(--terracotta-deep); font-weight: 700; }
+
+    @media (max-width: 820px) {
+      .two-col { grid-template-columns: 1fr; }
+      .hero { padding: 40px 24px 32px; }
+      .top-bar { padding: 16px 24px 0; }
+      section.page { padding: 40px 24px 60px; }
+      footer.foot { padding: 24px 24px 40px; }
+    }
+
+    .dark-section { background: var(--indigo); color: var(--cream); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+    .dark-section h2, .dark-section p, .dark-section li { color: var(--cream) !important; }
+    .dark-section .lead { opacity: 0.9; }
+    .dark-section strong.high { color: var(--ochre) !important; }
+    .jade-section { background: var(--jade); color: var(--cream); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+    .jade-section h2, .jade-section p, .jade-section li { color: var(--cream) !important; }
+    .jade-section strong.high { color: var(--ochre) !important; }
+    .cream2-section { background: var(--cream-2); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  </style>
 </head>
 <body>
-    <header class="site-header site-header--inner">
-        <a class="back-link" href="index.html">&larr; Home</a>
-        <h1>Ancient Maya</h1>
-        <p class="subtitle">A civilization of astronomers, builders, and storytellers</p>
-    </header>
 
-    <main>
-        <section class="hero">
-            <figure class="hero__figure">
-                <img src="images/chichen-itza.jpg" alt="El Castillo pyramid at Chichen Itza" class="hero__image">
-                <figcaption class="hero__caption">El Castillo &mdash; the pyramid of Kukulkan at Chichen Itza.</figcaption>
-            </figure>
-        </section>
+<div class="top-bar">
+  <a class="back-link" href="index.html">&larr; Home</a>
+</div>
 
-        <section class="prose">
-            <h2>Who were the Maya?</h2>
-            <p>
-                The Maya civilization flourished across present-day southern Mexico, Guatemala, Belize,
-                Honduras, and El Salvador for more than two thousand years. From the earliest settlements
-                around 2000 BC to the dazzling cities of the Classic period (250 AD &ndash; 900 AD), the
-                Maya built stone pyramids, palaces, ball courts, and observatories deep in the rainforest.
-            </p>
-            <p>
-                They were remarkable mathematicians and astronomers. They used the concept of zero,
-                tracked the movements of Venus, and produced a calendar so precise it measured the solar
-                year to within a fraction of a day. Their hieroglyphic writing &mdash; one of the few
-                fully-developed scripts of the ancient Americas &mdash; recorded the lives of kings,
-                the gods, and the turning of the cosmos.
-            </p>
-        </section>
+<header class="hero">
+  <div class="kicker">An Encyclopedia for Curious Kids</div>
+  <h1>The <span class="accent">Ancient Maya</span><br>A Journey Through Time</h1>
+  <p class="tagline">
+    Meet a brilliant people who built giant stone cities in the rainforest,
+    invented their own writing, and studied the stars &mdash; over 2,000 years ago.
+  </p>
+  <div class="hero-actions">
+    <button class="read-btn" data-read="The Ancient Maya. A Journey Through Time. Meet a brilliant people who built giant stone cities in the rainforest, invented their own writing, and studied the stars, over two thousand years ago.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read this page aloud</span>
+    </button>
+    <button class="read-btn start" data-goto="who">Start reading &rarr;</button>
+  </div>
+  <div class="glyph-strip" aria-hidden="true">
+    <div class="glyph" style="background:var(--jade);color:var(--cream);">&#9728;</div>
+    <div class="glyph" style="background:var(--terracotta);color:#fff;">&#9678;</div>
+    <div class="glyph" style="background:var(--indigo);color:var(--cream);">&#9790;</div>
+    <div class="glyph" style="background:var(--ochre);color:var(--ink);">&#10022;</div>
+    <div class="glyph">&#119808;</div>
+  </div>
+</header>
 
-        <section class="timeline">
-            <h2>A timeline of the Maya</h2>
-            <ol class="timeline__list">
-                <li>
-                    <span class="timeline__era">Preclassic</span>
-                    <span class="timeline__dates">2000 BC &ndash; 250 AD</span>
-                    <p>First villages grow into cities. Monumental architecture appears at sites like Nakbe and El Mirador.</p>
-                </li>
-                <li>
-                    <span class="timeline__era">Classic</span>
-                    <span class="timeline__dates">250 AD &ndash; 900 AD</span>
-                    <p>The golden age. Tikal, Palenque, Copan, and Calakmul rise as rival city-states.</p>
-                </li>
-                <li>
-                    <span class="timeline__era">Postclassic</span>
-                    <span class="timeline__dates">900 AD &ndash; 1524 AD</span>
-                    <p>Power shifts north to the Yucatan. Chichen Itza and later Mayapan dominate the peninsula.</p>
-                </li>
-                <li>
-                    <span class="timeline__era">Today</span>
-                    <span class="timeline__dates">Present</span>
-                    <p>More than six million Maya people live in the region, still speaking thirty or more Mayan languages.</p>
-                </li>
-            </ol>
-        </section>
+<div class="band"></div>
 
-        <section class="gallery">
-            <h2>Great cities of the Maya</h2>
-            <div class="gallery__grid">
-                <article class="card">
-                    <img src="images/copan.jpg" alt="Stepped stone pyramid at Copan with a stela in the foreground" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">Copan</h3>
-                        <p class="card__meta">Honduras &middot; Classic Period</p>
-                        <p>Famous for its intricate stelae and the Hieroglyphic Stairway, which records the longest Maya text ever found in stone.</p>
-                    </div>
-                </article>
+<nav class="tabs" aria-label="Chapters">
+  <div class="tabs-inner" role="tablist">
+    <button class="tab" role="tab" data-tab="who" aria-selected="true">Who Were the Maya?</button>
+    <button class="tab" role="tab" data-tab="where" aria-selected="false">Where They Lived</button>
+    <button class="tab" role="tab" data-tab="timeline" aria-selected="false">Timeline</button>
+    <button class="tab" role="tab" data-tab="cities" aria-selected="false">Amazing Cities</button>
+    <button class="tab" role="tab" data-tab="life" aria-selected="false">Daily Life</button>
+    <button class="tab" role="tab" data-tab="science" aria-selected="false">Science &amp; Stars</button>
+    <button class="tab" role="tab" data-tab="writing" aria-selected="false">Writing &amp; Numbers</button>
+    <button class="tab" role="tab" data-tab="gods" aria-selected="false">Gods &amp; Stories</button>
+    <button class="tab" role="tab" data-tab="end" aria-selected="false">What Happened?</button>
+    <button class="tab" role="tab" data-tab="today" aria-selected="false">The Maya Today</button>
+    <button class="tab" role="tab" data-tab="quiz" aria-selected="false">Test Yourself</button>
+  </div>
+</nav>
 
-                <article class="card">
-                    <img src="images/calakmul.jpg" alt="Pyramid of Calakmul rising above the jungle canopy" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">Calakmul</h3>
-                        <p class="card__meta">Mexico &middot; Classic Period</p>
-                        <p>The great rival of Tikal. Hidden deep in the Campeche rainforest, its central pyramid is one of the largest ever built by the Maya.</p>
-                    </div>
-                </article>
+<main>
 
-                <article class="card">
-                    <img src="images/chichen-itza.jpg" alt="El Castillo pyramid at Chichen Itza" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">Chichen Itza</h3>
-                        <p class="card__meta">Mexico &middot; Postclassic Period</p>
-                        <p>Home of El Castillo, the pyramid of Kukulkan. Twice a year, the setting sun casts a serpent of shadow down its staircase.</p>
-                    </div>
-                </article>
+<section id="who" class="page">
+  <span class="pill terra">Chapter 1</span>
+  <h2>Who Were the Maya?</h2>
+  <p class="lead">A clever people who built a great <span class="word" tabindex="0" data-def="civilization: A big group of people living together with cities, rules, art, and writing.">civilization</span> in the rainforest.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>The <strong>Maya</strong> were a people who lived in the thick, green <span class="word" tabindex="0" data-def="rainforest: A thick, very rainy forest full of tall trees, birds, and animals.">rainforests</span> of <span class="word" tabindex="0" data-def="Mesoamerica: The part of the world that is now Mexico and Central America.">Mesoamerica</span> &mdash; the land we now call southern Mexico, Guatemala, Belize, and parts of Honduras.</p>
+      <p>They were not one big country ruled by one king. Instead, the Maya lived in many <strong>city-states</strong> &mdash; a bit like if every big town had its own king or queen, its own army, and its own markets.</p>
+      <p>They were farmers, builders, artists, and star-watchers. They wrote books, played ball games, made music, and traded pretty things like <span class="word" tabindex="0" data-def="jade: A pretty green stone the Maya thought was more special than gold.">jade</span>, feathers, and cocoa beans.</p>
+      <p>And here is something amazing: <strong>the Maya are still here today!</strong> Over 6 million Maya people live now, and many still speak Mayan languages their great-great-great grandparents spoke.</p>
+      <button class="read-btn" data-read="The Maya were a people who lived in the thick green rainforests of Mesoamerica. They were not one big country. They lived in many city-states, each with its own king or queen. They were farmers, builders, artists, and star-watchers. And the Maya are still here today. Over six million Maya people live now.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="photo" style="min-height:300px;">
+        <img src="images/mayan-ruler.avif" alt="Ancient Maya stone carving showing a ruler">
+        <div class="caption">A Maya ruler carved in stone, showing fine clothes and a feathered headdress.</div>
+      </div>
+      <div class="card" style="margin-top:20px; background:var(--cream-2);">
+        <strong style="color:var(--terracotta-deep);">Quick Fact</strong>
+        <p style="margin:8px 0 0;">The word &ldquo;Maya&rdquo; means both the people and their family of languages. There are about <strong>30 Mayan languages</strong> still spoken today!</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <article class="card">
-                    <img src="images/caracol.jpg" alt="El Caracol observatory at Chichen Itza" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">El Caracol</h3>
-                        <p class="card__meta">Chichen Itza &middot; Observatory</p>
-                        <p>A round tower with windows aligned to the movements of Venus &mdash; proof of the Maya's gift for watching the sky.</p>
-                    </div>
-                </article>
+<section id="where" class="page cream2-section">
+  <span class="pill jade">Chapter 2</span>
+  <h2>Where They Lived</h2>
+  <p class="lead">Imagine a hot jungle, full of howler monkeys, jaguars, and colourful birds.</p>
+  <div class="two-col">
+    <div>
+      <div class="map-placeholder">
+        <svg viewBox="0 0 300 220" style="width:100%; max-width:280px;">
+          <rect x="0" y="0" width="300" height="220" fill="transparent"></rect>
+          <path d="M40,60 Q70,40 110,50 L150,45 Q190,55 220,75 L250,100 Q260,130 240,160 L200,175 Q160,180 130,170 L90,160 Q60,140 50,110 Z"
+                fill="#d4a04b" stroke="#2a1e12" stroke-width="2.5"></path>
+          <circle cx="120" cy="90" r="5" fill="#9e3b20" stroke="#2a1e12" stroke-width="1.5"></circle>
+          <text x="128" y="94" font-size="10" font-family="Lexend" font-weight="700">Tikal</text>
+          <circle cx="85" cy="75" r="5" fill="#9e3b20" stroke="#2a1e12" stroke-width="1.5"></circle>
+          <text x="45" y="72" font-size="10" font-family="Lexend" font-weight="700">Palenque</text>
+          <circle cx="170" cy="65" r="5" fill="#9e3b20" stroke="#2a1e12" stroke-width="1.5"></circle>
+          <text x="178" y="62" font-size="10" font-family="Lexend" font-weight="700">Chich&eacute;n Itz&aacute;</text>
+          <circle cx="165" cy="130" r="5" fill="#9e3b20" stroke="#2a1e12" stroke-width="1.5"></circle>
+          <text x="173" y="134" font-size="10" font-family="Lexend" font-weight="700">Cop&aacute;n</text>
+          <text x="150" y="210" text-anchor="middle" font-size="11" font-family="Atkinson Hyperlegible" font-style="italic">The Maya Region</text>
+        </svg>
+      </div>
+    </div>
+    <div class="prose">
+      <p>The Maya lived in three big kinds of places:</p>
+      <ul>
+        <li><strong>Highlands</strong> &mdash; cool mountains in the south with pine trees and volcanoes.</li>
+        <li><strong>Lowlands</strong> &mdash; hot, flat rainforest in the middle, where huge cities like Tikal were built.</li>
+        <li><strong>Yucat&aacute;n</strong> &mdash; a flat, dry land in the north with hidden underground pools called <em>cenotes</em> (say: <strong>seh-NOH-tays</strong>).</li>
+      </ul>
+      <p>The rainforest was full of <strong>jaguars</strong>, spider monkeys, toucans, and giant iguanas. It was also full of snakes &mdash; so watch your step!</p>
+      <button class="read-btn" data-read="The Maya lived in three big kinds of places. Highlands, which are cool mountains with volcanoes. Lowlands, which are hot, flat rainforests where huge cities like Tikal were built. And the Yucatan, a flat dry land in the north with underground pools called cenotes. The rainforest was full of jaguars, monkeys, toucans, and iguanas.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+  </div>
+</section>
 
-                <article class="card">
-                    <img src="images/palenque.jpg" alt="Temple of the Inscriptions at Palenque" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">Palenque</h3>
-                        <p class="card__meta">Mexico &middot; Classic Period</p>
-                        <p>The Temple of the Inscriptions hides the tomb of King Pakal the Great, one of the greatest archaeological discoveries of the 20th century.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
+<section id="timeline" class="page">
+  <span class="pill indigo">Chapter 3</span>
+  <h2>A Timeline</h2>
+  <p class="lead">The Maya story is <strong>4,000 years long!</strong> Here are the biggest moments.</p>
+  <div class="timeline">
+    <div class="tl-item"><div class="when">2000 BCE</div><h3>The First Maya Villages</h3><p>Small groups of people start farming maize (corn) and living in villages.</p></div>
+    <div class="tl-item"><div class="when">1000 BCE</div><h3>Growing Towns</h3><p>Villages grow into towns. People begin building small temples and making pottery.</p></div>
+    <div class="tl-item"><div class="when">250 CE</div><h3>The Classic Period Begins</h3><p>Huge cities like Tikal and Palenque rise up. Kings and queens rule. Art and writing explode!</p></div>
+    <div class="tl-item"><div class="when">600 CE</div><h3>The Golden Age</h3><p>Over 40 big cities shine across the rainforest. Maya astronomers map the stars.</p></div>
+    <div class="tl-item"><div class="when">900 CE</div><h3>The Mysterious Collapse</h3><p>Many southern cities are left empty. Nobody knows exactly why &mdash; maybe drought, war, or both.</p></div>
+    <div class="tl-item"><div class="when">1000 CE</div><h3>The Maya Move North</h3><p>Cities like Chich&eacute;n Itz&aacute; grow powerful in the Yucat&aacute;n.</p></div>
+    <div class="tl-item"><div class="when">1500s CE</div><h3>Spanish Arrive</h3><p>Spanish ships reach the land. A hard time begins for the Maya.</p></div>
+    <div class="tl-item"><div class="when">Today</div><h3>Still Here!</h3><p>More than 6 million Maya people live today, speaking around 30 Mayan languages.</p></div>
+  </div>
+  <button class="read-btn" data-read="A timeline of the Maya. 2000 BCE, the first villages. 1000 BCE, growing towns. 250 CE, the Classic Period begins with huge cities like Tikal and Palenque. 600 CE, the golden age with over forty big cities. 900 CE, the mysterious collapse. 1000 CE, the Maya move north to cities like Chichen Itza. The 1500s, Spanish explorers arrive. Today, more than six million Maya people still live.">
+    <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+  </button>
+</section>
 
-        <section class="prose">
-            <h2>Writing in stone</h2>
-            <p>
-                Across every Maya city, kings raised tall carved stones called <em>stelae</em> to mark
-                important dates: births, coronations, victories in battle, and the ends of calendar
-                cycles. Together, these stelae give us a story of the Maya told in their own words.
-            </p>
-        </section>
-    </main>
+<section id="cities" class="page cream2-section">
+  <span class="pill ochre">Chapter 4</span>
+  <h2>Amazing Cities</h2>
+  <p class="lead">The Maya built over <strong>40 big cities</strong>, each with <span class="word" tabindex="0" data-def="pyramid: A huge stone building with a wide bottom that gets smaller as it goes up.">pyramids</span> and <span class="word" tabindex="0" data-def="temple: A special building used for prayers and ceremonies.">temples</span>.</p>
+  <div class="grid">
+    <article class="card" style="padding:0; overflow:hidden;">
+      <div class="city-img"><img src="images/tikal.jpg" alt="Tikal pyramid rising above the jungle"></div>
+      <div class="city-body">
+        <span class="pill jade">Guatemala</span>
+        <h3>Tikal</h3>
+        <p>Home to a pyramid taller than a 20-story building &mdash; you can see it poking out of the jungle trees!</p>
+      </div>
+    </article>
+    <article class="card" style="padding:0; overflow:hidden;">
+      <div class="city-img"><img src="images/palenque.jpg" alt="Stone carvings and temples at Palenque"></div>
+      <div class="city-body">
+        <span class="pill terra">Mexico</span>
+        <h3>Palenque</h3>
+        <p>Famous for beautiful carvings and the tomb of a great king named Pakal.</p>
+      </div>
+    </article>
+    <article class="card" style="padding:0; overflow:hidden;">
+      <div class="city-img"><img src="images/chichen-itza.jpg" alt="El Castillo pyramid at Chich&eacute;n Itz&aacute;"></div>
+      <div class="city-body">
+        <span class="pill indigo">Mexico</span>
+        <h3>Chich&eacute;n Itz&aacute;</h3>
+        <p>The great pyramid here makes a shadow that looks like a snake on two days each year.</p>
+      </div>
+    </article>
+    <article class="card" style="padding:0; overflow:hidden;">
+      <div class="city-img"><img src="images/copan.jpg" alt="Stepped stone pyramid at Cop&aacute;n"></div>
+      <div class="city-body">
+        <span class="pill ochre">Honduras</span>
+        <h3>Cop&aacute;n</h3>
+        <p>Covered in some of the finest stone carvings the Maya ever made.</p>
+      </div>
+    </article>
+    <article class="card" style="padding:0; overflow:hidden;">
+      <div class="city-img"><img src="images/calakmul.jpg" alt="Pyramid of Calakmul in the rainforest"></div>
+      <div class="city-body">
+        <span class="pill jade">Mexico</span>
+        <h3>Calakmul</h3>
+        <p>A giant rival of Tikal, hidden deep in a huge rainforest.</p>
+      </div>
+    </article>
+    <article class="card" style="padding:0; overflow:hidden;">
+      <div class="city-img"><img src="images/uxmal.jpg" alt="Pyramid of the Magician at Uxmal"></div>
+      <div class="city-body">
+        <span class="pill terra">Mexico</span>
+        <h3>Uxmal</h3>
+        <p>Known for the Pyramid of the Magician, with rounded sides &mdash; very rare!</p>
+      </div>
+    </article>
+  </div>
+</section>
 
-    <footer class="site-footer">
-        <p><a href="index.html">&larr; Back to home</a></p>
-    </footer>
+<section id="life" class="page">
+  <span class="pill jade">Chapter 5</span>
+  <h2>Daily Life</h2>
+  <p class="lead">What was it like to wake up as a Maya kid?</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Most Maya people were <strong>farmers</strong>. They grew <span class="word" tabindex="0" data-def="maize: The word for corn — a tall plant with yellow kernels.">maize</span> (corn), beans, squash, chilli peppers, tomatoes, and cocoa. Yes &mdash; <strong>chocolate comes from the Maya!</strong> They drank it as a spicy, frothy drink. (Sugar wasn&rsquo;t added until much later.)</p>
+      <p>Maya homes were small houses made of wood and mud, with roofs made of palm leaves. The whole family slept in one room on woven mats.</p>
+      <p>Kids helped their families. Boys learned to farm, hunt, and sometimes to read and write. Girls learned to weave beautiful cloth, cook tortillas, and care for younger brothers and sisters. Some children became <span class="word" tabindex="0" data-def="scribe: A person whose job is to read and write.">scribes</span> or priests!</p>
+      <p>For fun, the Maya played a ball game with a heavy rubber ball. They could not use their hands &mdash; only hips, knees, and elbows. Ouch!</p>
+      <button class="read-btn" data-read="Most Maya people were farmers. They grew maize, beans, squash, chillies, tomatoes, and cocoa. Chocolate comes from the Maya! They drank it as a spicy frothy drink. Maya homes were small houses made of wood and mud, with roofs of palm leaves. Kids helped their families. For fun, the Maya played a ball game with a heavy rubber ball, using only hips, knees, and elbows.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div style="display:grid; gap:16px;">
+      <div class="card">
+        <strong style="color:var(--terracotta-deep);">Maya Menu</strong>
+        <ul style="margin:8px 0 0; padding-left:20px;">
+          <li>Tortillas made of corn</li>
+          <li>Beans and squash stew</li>
+          <li>Tamales wrapped in leaves</li>
+          <li>Hot spicy chocolate</li>
+          <li>Fruit: papaya, avocado, guava</li>
+        </ul>
+      </div>
+      <div class="card" style="background:var(--jade); color:var(--cream); border-color:var(--ink);">
+        <strong>Did you know?</strong>
+        <p style="margin:8px 0 0;">Cocoa beans were so valuable the Maya used them as <strong style="color:var(--ochre);">money</strong>. Imagine paying for toys with chocolate!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="science" class="page dark-section">
+  <span class="pill ochre">Chapter 6</span>
+  <h2>Science &amp; Stars</h2>
+  <p class="lead">The Maya were some of the greatest <span class="word" tabindex="0" data-def="astronomer: A person who studies the stars, the Sun, and the Moon.">astronomers</span> who ever lived.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Without any telescopes, the Maya watched the sky every single night. They learned exactly how the Sun, Moon, and planets moved.</p>
+      <p>They were so good at it that they could predict <strong class="high">eclipses</strong> &mdash; when the Moon covers the Sun &mdash; many years before they happened.</p>
+      <p>The Maya had not just one but <strong class="high">three different calendars</strong> all running at the same time:</p>
+      <ul>
+        <li>The <strong class="high">Tzolk&rsquo;in</strong> &mdash; 260 days. Used for special ceremonies.</li>
+        <li>The <strong class="high">Haab&rsquo;</strong> &mdash; 365 days. Like our year.</li>
+        <li>The <strong class="high">Long Count</strong> &mdash; counted thousands of years.</li>
+      </ul>
+      <button class="read-btn" data-read="The Maya were some of the greatest astronomers who ever lived. Without any telescopes, they watched the sky every night. They could predict eclipses many years before they happened. They had three different calendars. The Tzolkin of 260 days for ceremonies. The Haab of 365 days like our year. And the Long Count which counted thousands of years.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="card" style="background:rgba(245,236,215,0.1); border-color:var(--cream); color:var(--cream);">
+        <strong class="high">Wow Fact</strong>
+        <p style="margin:8px 0 0;">Maya priests tracked the planet <strong class="high">Venus</strong> so carefully that their records are only off by <strong class="high">a few minutes over 500 years</strong>. That&rsquo;s almost perfect!</p>
+      </div>
+      <div class="photo" style="margin-top:20px; border-color:var(--cream);">
+        <img src="images/observatory.jpg" alt="The round stone observatory at Chich&eacute;n Itz&aacute;">
+        <div class="caption" style="background:var(--indigo); color:var(--cream); border-color:var(--cream);">El Caracol &mdash; the Maya observatory at Chich&eacute;n Itz&aacute;. Maya astronomers watched the stars through small windows in the round tower.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing" class="page">
+  <span class="pill terra">Chapter 7</span>
+  <h2>Writing &amp; Numbers</h2>
+  <p class="lead">The Maya invented their own writing &mdash; and a number that we all use today.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p><strong>Maya writing</strong> used little pictures called <span class="word" tabindex="0" data-def="glyphs: Picture-letters the Maya used to write words and sentences.">glyphs</span>. Some glyphs stood for whole words. Others stood for sounds &mdash; a bit like letters. Put them together and you could write anything!</p>
+      <p>The Maya wrote on stone, on walls, on pottery, and in folded books called <span class="word" tabindex="0" data-def="codex: A book made of folded bark paper where the Maya drew and wrote.">codices</span> (say: <strong>KOH-dih-seez</strong>), made from tree bark.</p>
+      <p>They were also brilliant at <strong>math</strong>. Their numbers were simple but clever:</p>
+      <ul>
+        <li>A <strong>dot</strong> means <strong>1</strong></li>
+        <li>A <strong>bar</strong> means <strong>5</strong></li>
+        <li>A <strong>shell shape</strong> means <strong>0</strong> (zero!)</li>
+      </ul>
+      <p>The Maya invented the number <strong>zero</strong> all by themselves &mdash; one of the biggest ideas in all of math.</p>
+      <button class="read-btn" data-read="Maya writing used little pictures called glyphs. They wrote on stone, walls, pottery, and folded bark books called codices. A dot means one. A bar means five. A shell shape means zero. The Maya invented the number zero all by themselves, one of the biggest ideas in all of math.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="card" style="background:var(--cream-2);">
+        <strong style="color:var(--terracotta-deep); font-size:18px;">Maya Numbers 0&ndash;9</strong>
+        <div class="numbers" id="numbers"></div>
+        <p style="margin:12px 0 0; font-size:16px; color:var(--ink-soft);">Try it: three dots on top of one bar = <strong>8</strong>. Easy!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gods" class="page cream2-section">
+  <span class="pill jade">Chapter 8</span>
+  <h2>Gods &amp; Stories</h2>
+  <p class="lead">The Maya told wonderful stories about how the world was made.</p>
+  <div class="prose">
+    <p>The Maya believed in many gods. Each god looked after a different part of life:</p>
+  </div>
+  <div class="grid">
+    <div class="card"><h3 style="margin:0 0 6px;">Itzamn&aacute;</h3><p style="margin:0;">The wise old sky god. He was said to have given the Maya writing and calendars.</p></div>
+    <div class="card"><h3 style="margin:0 0 6px;">Chaac</h3><p style="margin:0;">The rain god. When thunder cracked, farmers said Chaac was striking his lightning-axe against the clouds.</p></div>
+    <div class="card"><h3 style="margin:0 0 6px;">Ix Chel</h3><p style="margin:0;">The moon goddess. She watched over babies, weaving, and medicine.</p></div>
+    <div class="card"><h3 style="margin:0 0 6px;">The Hero Twins</h3><p style="margin:0;">Two brave brothers named Hunahp&uacute; and Xbalanqu&eacute;. They beat the lords of the underworld at the ball game using their wits!</p></div>
+  </div>
+  <div class="prose" style="margin-top:32px;">
+    <p>A famous Maya book called the <em>Popol Vuh</em> (say: <strong>POH-pol VOO</strong>) tells the story of how the gods made people. Their first try was with mud &mdash; it fell apart. Then wood &mdash; the wooden people had no feelings. Finally, they made people from <strong>corn dough</strong>. And those corn people could think, feel, and thank the gods. That is why corn was so sacred to the Maya.</p>
+    <button class="read-btn" data-read="The Maya believed in many gods. Itzamna was the wise sky god. Chaac was the rain god. Ix Chel was the moon goddess. The Hero Twins were two brave brothers who beat the lords of the underworld at the ball game. A famous Maya book called the Popol Vuh tells how the gods made people. Their first try was mud, which fell apart. Then wood, which had no feelings. Finally, they made people from corn dough. That is why corn was so sacred to the Maya.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+    </button>
+  </div>
+</section>
+
+<section id="end" class="page">
+  <span class="pill terra">Chapter 9</span>
+  <h2>What Happened to the Maya Cities?</h2>
+  <p class="lead">A real-life mystery that scientists are still trying to solve.</p>
+  <div class="prose">
+    <p>Around the year <strong>900 CE</strong>, something strange happened. One by one, the big Maya cities in the south stopped growing. Kings left their thrones. Builders stopped building. The jungle slowly covered up the pyramids until they looked like hills.</p>
+    <p>This is called the <strong>Maya Collapse</strong>. Nobody knows exactly why it happened. Scientists have found clues that point to many reasons all mixing together:</p>
+    <ul>
+      <li>A very long <strong>drought</strong> (not enough rain to grow corn)</li>
+      <li><strong>Wars</strong> between city-states</li>
+      <li>Too many people for the land to feed</li>
+      <li>Cutting down too many trees</li>
+    </ul>
+    <p>But here is the important thing: the <strong>Maya people did not vanish.</strong> They moved. New cities grew up in the north, like <strong>Chich&eacute;n Itz&aacute;</strong>. Life went on &mdash; just in a different way.</p>
+    <p>Later, in the <strong>1500s</strong>, Spanish explorers and soldiers arrived from across the sea. They brought new diseases the Maya had never seen, and they took over Maya lands. Many Maya books were burned. It was a very hard time. But even then &mdash; the Maya held on.</p>
+    <button class="read-btn" data-read="Around the year 900, something strange happened. One by one, the big Maya cities in the south stopped growing. This is called the Maya Collapse. But the Maya people did not vanish. They moved north to new cities like Chichen Itza. Later, in the 1500s, Spanish explorers arrived. It was a very hard time. But the Maya held on.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+    </button>
+  </div>
+</section>
+
+<section id="today" class="page jade-section">
+  <span class="pill ochre">Chapter 10</span>
+  <h2>The Maya Today</h2>
+  <p class="lead">Their story is not over. It is still being written.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>More than <strong class="high">6 million Maya people</strong> live today in Mexico, Guatemala, Belize, Honduras, and El Salvador.</p>
+      <p>They speak around <strong class="high">30 different Mayan languages</strong> &mdash; like K&rsquo;iche&rsquo;, Yucatec, Tzotzil, and Q&rsquo;anjob&rsquo;al.</p>
+      <p>Many Maya families still grow corn the way their ancestors did. They weave beautiful cloth with patterns that are thousands of years old. They cook tamales. They tell the old stories.</p>
+      <p>Maya writers, artists, teachers, and scientists are sharing their history with the world &mdash; and kids like you are part of keeping it alive, just by learning about it!</p>
+      <button class="read-btn" data-read="More than six million Maya people live today in Mexico, Guatemala, Belize, Honduras, and El Salvador. They speak around thirty different Mayan languages. Their story is not over. It is still being written.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div class="card" style="background:rgba(245,236,215,0.12); border-color:var(--cream); color:var(--cream);">
+      <strong class="high">Words You Can Try</strong>
+      <ul style="margin:10px 0 0; padding-left:20px;">
+        <li><strong>Ba&rsquo;ax ka wa&rsquo;alik?</strong> &mdash; &ldquo;How are you?&rdquo; (Yucatec Maya)</li>
+        <li><strong>Utz</strong> &mdash; &ldquo;Good&rdquo; (K&rsquo;iche&rsquo; Maya)</li>
+        <li><strong>M&aacute;altiox</strong> &mdash; &ldquo;Thank you&rdquo; (K&rsquo;iche&rsquo;)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="quiz" class="page">
+  <span class="pill indigo">Chapter 11</span>
+  <h2>Test Yourself!</h2>
+  <p class="lead">Five friendly questions. No rush &mdash; take your time.</p>
+  <div id="quiz-wrap" style="display:grid; gap:24px;"></div>
+  <div id="quiz-score"></div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>For curious readers:</strong> This little encyclopedia was made to be easy on the eyes. Fonts, colours, and spacing were chosen to help dyslexic readers.</p>
+  <p>Sources used include archaeological findings from Tikal, Palenque, Cop&aacute;n, and Chich&eacute;n Itz&aacute;; the <em>Popol Vuh</em>; and research from the Smithsonian, the British Museum, and modern Maya scholars.</p>
+  <p><a href="index.html">&larr; Back to home</a></p>
+</footer>
+
+<script>
+(function() {
+  // Render Maya numbers 0-9
+  var numEl = document.getElementById('numbers');
+  if (numEl) {
+    for (var n = 0; n <= 9; n++) {
+      var bars = Math.floor(n/5);
+      var dots = n % 5;
+      var cell = document.createElement('div');
+      cell.className = 'bar-dot';
+      var sym = document.createElement('div');
+      sym.className = 'sym';
+      var dotRow = document.createElement('div');
+      dotRow.className = 'dots';
+      if (dots > 0) {
+        for (var i = 0; i < dots; i++) {
+          var d = document.createElement('span');
+          d.className = 'dot';
+          dotRow.appendChild(d);
+        }
+      } else if (n === 0) {
+        var z = document.createElement('span');
+        z.className = 'zero';
+        z.textContent = '\u25E0';
+        dotRow.appendChild(z);
+      }
+      sym.appendChild(dotRow);
+      for (var b = 0; b < bars; b++) {
+        var bar = document.createElement('span');
+        bar.className = 'bar';
+        sym.appendChild(bar);
+      }
+      var num = document.createElement('div');
+      num.className = 'num';
+      num.textContent = n;
+      cell.appendChild(sym);
+      cell.appendChild(num);
+      numEl.appendChild(cell);
+    }
+  }
+
+  // Tab navigation
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var id = tab.getAttribute('data-tab');
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  // Active tab on scroll
+  var sections = document.querySelectorAll('section.page');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var id = e.target.id;
+        tabs.forEach(function(t) {
+          t.setAttribute('aria-selected', t.getAttribute('data-tab') === id ? 'true' : 'false');
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s) { io.observe(s); });
+
+  // Hero "Start reading" scroll
+  document.querySelectorAll('[data-goto]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var id = btn.getAttribute('data-goto');
+      var t = document.getElementById(id);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Read-aloud
+  var currentBtn = null;
+  document.querySelectorAll('[data-read]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (!('speechSynthesis' in window)) { alert('Sorry, your browser does not support read-aloud.'); return; }
+      if (currentBtn === btn) {
+        window.speechSynthesis.cancel();
+        btn.setAttribute('aria-pressed', 'false');
+        var lbl = btn.querySelector('.read-label'); if (lbl) lbl.textContent = lbl.dataset.orig || lbl.textContent;
+        currentBtn = null;
+        return;
+      }
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-read'));
+      u.rate = 0.88; u.pitch = 1.0;
+      u.onend = u.onerror = function() {
+        btn.setAttribute('aria-pressed', 'false');
+        var lbl = btn.querySelector('.read-label'); if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig;
+        currentBtn = null;
+      };
+      if (currentBtn) currentBtn.setAttribute('aria-pressed', 'false');
+      btn.setAttribute('aria-pressed', 'true');
+      var lbl = btn.querySelector('.read-label');
+      if (lbl) { if (!lbl.dataset.orig) lbl.dataset.orig = lbl.textContent; lbl.textContent = 'Stop'; }
+      currentBtn = btn;
+      window.speechSynthesis.speak(u);
+    });
+  });
+
+  // Quiz
+  var QUIZ = [
+    { q: "What food was most important to the Maya?", opts: ["Rice", "Maize (corn)", "Potatoes", "Bread"], answer: 1, why: "Maize was so important the Maya believed the first people were made of corn dough!" },
+    { q: "What did the Maya use to write?", opts: ["Letters like ours", "Numbers only", "Glyphs (picture-letters)", "Music notes"], answer: 2, why: "Maya glyphs are beautiful little pictures that stand for sounds, words, or ideas." },
+    { q: "Which stone did the Maya love even more than gold?", opts: ["Diamond", "Ruby", "Jade", "Silver"], answer: 2, why: "Green jade reminded the Maya of young corn plants and fresh rain." },
+    { q: "Where do Maya people live today?", opts: ["Nowhere — they all disappeared", "Only in museums", "Mexico and Central America", "Egypt"], answer: 2, why: "Over 6 million Maya people live today, mostly in Mexico, Guatemala, Belize, and Honduras." },
+    { q: "What did Maya astronomers watch closely?", opts: ["Stars, the Sun, and the planet Venus", "Only the Moon", "Clouds only", "Nothing"], answer: 0, why: "They tracked Venus so well they could predict where it would be many years ahead!" }
+  ];
+  var picks = {};
+  var quizWrap = document.getElementById('quiz-wrap');
+  var scoreEl = document.getElementById('quiz-score');
+  QUIZ.forEach(function(q, qi) {
+    var card = document.createElement('div');
+    card.className = 'quiz';
+    var pill = document.createElement('span'); pill.className = 'pill ochre'; pill.textContent = 'Question ' + (qi+1);
+    var h3 = document.createElement('h3'); h3.textContent = q.q;
+    card.appendChild(pill); card.appendChild(h3);
+    q.opts.forEach(function(o, oi) {
+      var b = document.createElement('button'); b.className = 'opt';
+      b.textContent = String.fromCharCode(65+oi) + '. ' + o;
+      b.addEventListener('click', function() {
+        if (picks[qi] !== undefined) return;
+        picks[qi] = oi;
+        var btns = card.querySelectorAll('.opt');
+        btns.forEach(function(bb, bi) {
+          bb.disabled = true;
+          if (bi === q.answer) bb.classList.add('correct');
+          else if (bi === oi) bb.classList.add('wrong');
+        });
+        var ex = card.querySelector('.explain');
+        ex.textContent = (oi === q.answer ? '\u2713 Yes! ' : 'Almost! The answer is ' + q.opts[q.answer] + '. ') + q.why;
+        ex.classList.add('show');
+        updateScore();
+      });
+      card.appendChild(b);
+    });
+    var explain = document.createElement('p'); explain.className = 'explain';
+    card.appendChild(explain);
+    quizWrap.appendChild(card);
+  });
+  function updateScore() {
+    var answered = Object.keys(picks).length;
+    if (answered !== QUIZ.length) return;
+    var score = 0;
+    Object.keys(picks).forEach(function(k) { if (picks[k] === QUIZ[k].answer) score++; });
+    scoreEl.innerHTML = '';
+    var box = document.createElement('div');
+    box.className = 'card';
+    box.style.cssText = 'margin-top:32px; background:var(--ochre); text-align:center;';
+    var h3 = document.createElement('h3');
+    h3.style.cssText = 'margin:0 0 10px; font-size:32px; color:var(--ink);';
+    h3.textContent = 'You got ' + score + ' out of ' + QUIZ.length + '!';
+    var p = document.createElement('p'); p.style.cssText = 'margin:0;';
+    p.textContent = score === QUIZ.length ? '\uD83C\uDF1F Perfect! You are a true Maya explorer.' : score >= 3 ? 'Great job! You learned a lot today.' : 'Nice try! Go back and read again — you\u2019ll get it next time.';
+    box.appendChild(h3); box.appendChild(p);
+    scoreEl.appendChild(box);
+  }
+})();
+</script>
+
 </body>
 </html>
