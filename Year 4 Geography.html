@@ -829,33 +829,64 @@
   });
 
   // Read-aloud
-  var currentBtn = null;
-  document.querySelectorAll('[data-read]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      if (!('speechSynthesis' in window)) { alert('Sorry, your browser does not support read-aloud.'); return; }
-      if (currentBtn === btn) {
-        window.speechSynthesis.cancel();
-        btn.setAttribute('aria-pressed', 'false');
-        var lbl = btn.querySelector('.read-label'); if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig;
-        currentBtn = null;
-        return;
+  (function setupReadAloud() {
+    if (!('speechSynthesis' in window)) {
+      document.querySelectorAll('[data-read]').forEach(function(btn) {
+        btn.disabled = true;
+        btn.title = 'Your browser does not support read-aloud.';
+        btn.style.opacity = '0.5';
+      });
+      return;
+    }
+    var synth = window.speechSynthesis;
+    var preferredVoice = null;
+    function pickVoice() {
+      var voices = synth.getVoices();
+      preferredVoice = voices.find(function(v) { return /en[-_]GB/i.test(v.lang); })
+                    || voices.find(function(v) { return /^en/i.test(v.lang); })
+                    || voices[0] || null;
+    }
+    pickVoice();
+    if (typeof synth.onvoiceschanged !== 'undefined') {
+      synth.addEventListener('voiceschanged', pickVoice);
+    }
+    var keepAliveTimer = null;
+    function keepAlive() {
+      clearTimeout(keepAliveTimer);
+      if (synth.speaking) {
+        synth.pause(); synth.resume();
+        keepAliveTimer = setTimeout(keepAlive, 8000);
       }
-      window.speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-read'));
-      u.rate = 0.88; u.pitch = 1.0;
-      u.onend = u.onerror = function() {
-        btn.setAttribute('aria-pressed', 'false');
-        var lbl = btn.querySelector('.read-label'); if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig;
-        currentBtn = null;
-      };
-      if (currentBtn) currentBtn.setAttribute('aria-pressed', 'false');
-      btn.setAttribute('aria-pressed', 'true');
+    }
+    function resetBtn(btn) {
+      btn.setAttribute('aria-pressed', 'false');
       var lbl = btn.querySelector('.read-label');
-      if (lbl) { if (!lbl.dataset.orig) lbl.dataset.orig = lbl.textContent; lbl.textContent = 'Stop'; }
-      currentBtn = btn;
-      window.speechSynthesis.speak(u);
+      if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig;
+    }
+    var currentBtn = null;
+    document.querySelectorAll('[data-read]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (synth.paused) synth.resume();
+        if (currentBtn === btn) {
+          synth.cancel(); clearTimeout(keepAliveTimer);
+          resetBtn(btn); currentBtn = null; return;
+        }
+        if (currentBtn) resetBtn(currentBtn);
+        synth.cancel(); clearTimeout(keepAliveTimer);
+        var u = new SpeechSynthesisUtterance(btn.getAttribute('data-read'));
+        u.rate = 0.9; u.pitch = 1.0; u.volume = 1.0;
+        if (preferredVoice) u.voice = preferredVoice;
+        u.onend = function() { clearTimeout(keepAliveTimer); resetBtn(btn); if (currentBtn === btn) currentBtn = null; };
+        u.onerror = u.onend;
+        btn.setAttribute('aria-pressed', 'true');
+        var lbl = btn.querySelector('.read-label');
+        if (lbl) { if (!lbl.dataset.orig) lbl.dataset.orig = lbl.textContent; lbl.textContent = 'Stop'; }
+        currentBtn = btn;
+        setTimeout(function() { synth.speak(u); keepAlive(); }, 50);
+      });
     });
-  });
+    window.addEventListener('beforeunload', function() { try { synth.cancel(); } catch (e) {} });
+  })();
 
   // Interactive quiz
   var QUIZ = [
