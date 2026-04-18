@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 4 Maths &mdash; A Practice Guidebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back-link" href="index.html">&larr; Home</a>
+</div>
+
+<header class="hero">
+  <div class="kicker">Year 4 &middot; Key Stage 2</div>
+  <h1><span class="accent-terra">Maths</span><br>Numbers, Shapes &amp; Measure</h1>
+  <p class="tagline">
+    Seven friendly topics from the Year 4 National Curriculum &mdash; then a fresh set
+    of practice questions, brand new every time you visit.
+  </p>
+  <div class="hero-actions">
+    <button class="read-btn" data-read="Year 4 Maths. Numbers, Shapes and Measure. Seven friendly topics from the National Curriculum, then a fresh set of practice questions every time you visit.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read this page aloud</span>
+    </button>
+    <button class="read-btn start" data-goto="place-value">Start reading &rarr;</button>
+  </div>
+  <div class="glyph-strip" aria-hidden="true">
+    <div class="glyph" style="background:var(--terracotta);color:#fff;">&#8721;</div>
+    <div class="glyph" style="background:var(--jade);color:var(--cream);">&#10005;</div>
+    <div class="glyph" style="background:var(--indigo);color:var(--cream);">&#247;</div>
+    <div class="glyph" style="background:var(--ochre);color:var(--ink);">&#9651;</div>
+    <div class="glyph">&#188;</div>
+  </div>
+</header>
+
+<div class="band"></div>
+
+<nav class="tabs" aria-label="Topics">
+  <div class="tabs-inner" role="tablist">
+    <button class="tab" role="tab" data-tab="place-value" aria-selected="true">Place Value</button>
+    <button class="tab" role="tab" data-tab="add-sub" aria-selected="false">Add &amp; Subtract</button>
+    <button class="tab" role="tab" data-tab="times-tables" aria-selected="false">Times Tables</button>
+    <button class="tab" role="tab" data-tab="fractions" aria-selected="false">Fractions &amp; Decimals</button>
+    <button class="tab" role="tab" data-tab="measurement" aria-selected="false">Measurement</button>
+    <button class="tab" role="tab" data-tab="geometry" aria-selected="false">Geometry</button>
+    <button class="tab" role="tab" data-tab="statistics" aria-selected="false">Statistics</button>
+    <button class="tab" role="tab" data-tab="practice" aria-selected="false">Practice</button>
+  </div>
+</nav>
+
+<main>
+
+<section id="place-value" class="page">
+  <span class="pill terra">Topic 1</span>
+  <h2>Place Value</h2>
+  <p class="lead">Every digit has a home. Knowing its home tells you how big it is.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>In Year 4 we work with numbers up to <strong>10,000</strong>. Each digit sits in a column that tells us its value:</p>
+      <ul>
+        <li><strong>Thousands</strong> &mdash; 1,000s column</li>
+        <li><strong>Hundreds</strong> &mdash; 100s column</li>
+        <li><strong>Tens</strong> &mdash; 10s column</li>
+        <li><strong>Ones</strong> &mdash; 1s column</li>
+      </ul>
+      <p>So in <strong>3,472</strong>, the <strong>3</strong> means three thousands, the <strong>4</strong> means four hundreds, the <strong>7</strong> means seven tens, and the <strong>2</strong> means two ones.</p>
+      <p>We also learn <span class="word" tabindex="0" data-def="Roman numerals: Letters used as numbers. I=1, V=5, X=10, L=50, C=100.">Roman numerals</span> from I to C. You see them on clocks and old buildings.</p>
+      <button class="read-btn" data-read="In Year 4 we work with numbers up to ten thousand. Each digit sits in a column that tells us its value. Thousands, hundreds, tens, and ones. So in three thousand four hundred and seventy-two, the three means three thousands, the four means four hundreds, the seven means seven tens, and the two means two ones.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="card" style="background:var(--cream-2);">
+        <strong style="color:var(--terracotta-deep);">Roman numerals</strong>
+        <ul style="margin:10px 0 0; padding-left: 20px;">
+          <li>I = 1</li>
+          <li>V = 5</li>
+          <li>X = 10</li>
+          <li>L = 50</li>
+          <li>C = 100</li>
+          <li>IV = 4 &middot; IX = 9 &middot; XL = 40</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:20px; background:#fff8e8;">
+        <strong style="color:var(--terracotta-deep);">Negative numbers</strong>
+        <p style="margin:8px 0 0;">Numbers below zero. On a cold day the thermometer might read <strong>&minus;3&deg;C</strong> &mdash; three degrees below freezing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="add-sub" class="page cream2-section">
+  <span class="pill jade">Topic 2</span>
+  <h2>Addition &amp; Subtraction</h2>
+  <p class="lead">Join groups together. Or take some away.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>In Year 4 we add and subtract <strong>4-digit numbers</strong> using the column method. Line up the columns, then add or subtract from the <strong>right</strong> (ones first).</p>
+      <p>When a column&rsquo;s answer is 10 or more, we <strong>carry</strong> the extra over to the next column. When we can&rsquo;t take a digit away from a smaller one, we <strong>borrow</strong> from the next column.</p>
+      <p>Always check your answer by doing the opposite operation. If 3,215 + 1,478 = 4,693, then 4,693 &minus; 1,478 should give 3,215.</p>
+      <button class="read-btn" data-read="In Year 4 we add and subtract four-digit numbers using the column method. Line up the columns, then add or subtract from the right. When a column answer is ten or more, we carry the extra over. When we can't take a digit away from a smaller one, we borrow from the next column.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div class="card" style="background:#fff8e8; font-family: ui-monospace, Menlo, monospace; font-size: 20px; line-height: 1.3;">
+      <strong style="color:var(--terracotta-deep); font-family: var(--font-display);">Column method</strong>
+      <pre style="margin:16px 0 0; text-align:right; padding-right: 20px;">  3,2<u>1</u>5
++ 1,478
+-------
+  4,693</pre>
+      <p style="margin:14px 0 0; color:var(--ink-soft); font-size: 15px; font-family: var(--font-body);">Carry the <strong>1</strong> from 5+8=13 into the tens column.</p>
+    </div>
+  </div>
+</section>
+
+<section id="times-tables" class="page">
+  <span class="pill indigo">Topic 3</span>
+  <h2>Times Tables</h2>
+  <p class="lead">By the end of Year 4 you should know all times tables up to <strong>12 &times; 12</strong>.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Multiplication is just <strong>repeated adding</strong>. 4 &times; 3 means &ldquo;four lots of three&rdquo;, which is 3 + 3 + 3 + 3 = 12.</p>
+      <p>Division is the opposite. 12 &divide; 3 means &ldquo;how many threes fit into twelve?&rdquo; The answer is 4.</p>
+      <p>Top tips for learning tables:</p>
+      <ul>
+        <li>The <strong>2, 5 and 10</strong> tables are the quickest to learn.</li>
+        <li>Any number &times; 1 is itself. Any number &times; 0 is zero.</li>
+        <li>3 &times; 4 is the same as 4 &times; 3 &mdash; it doesn&rsquo;t matter which way round.</li>
+        <li>The <strong>9 times table</strong> has a pattern &mdash; the digits add up to 9 every time (9, 18, 27, 36&hellip; 1+8=9, 2+7=9).</li>
+      </ul>
+      <button class="read-btn" data-read="Multiplication is just repeated adding. Four times three means four lots of three, which is three plus three plus three plus three, equals twelve. Division is the opposite. Twelve divided by three means how many threes fit into twelve. The answer is four.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div class="card" style="background:var(--cream-2);">
+      <strong style="color:var(--terracotta-deep);">A 6 times table</strong>
+      <ul style="margin:10px 0 0; padding-left: 20px; columns: 2; column-gap: 20px;">
+        <li>1 &times; 6 = 6</li>
+        <li>2 &times; 6 = 12</li>
+        <li>3 &times; 6 = 18</li>
+        <li>4 &times; 6 = 24</li>
+        <li>5 &times; 6 = 30</li>
+        <li>6 &times; 6 = 36</li>
+        <li>7 &times; 6 = 42</li>
+        <li>8 &times; 6 = 48</li>
+        <li>9 &times; 6 = 54</li>
+        <li>10 &times; 6 = 60</li>
+        <li>11 &times; 6 = 66</li>
+        <li>12 &times; 6 = 72</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="fractions" class="page cream2-section">
+  <span class="pill ochre">Topic 4</span>
+  <h2>Fractions &amp; Decimals</h2>
+  <p class="lead">A <span class="word" tabindex="0" data-def="fraction: A number that is less than one whole, shown as a top number over a bottom number.">fraction</span> is a slice of a whole thing.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>In the fraction <strong>3/4</strong>, the bottom number (<strong>4</strong>) is the <strong>denominator</strong> &mdash; it says how many slices the whole is cut into. The top number (<strong>3</strong>) is the <strong>numerator</strong> &mdash; it says how many slices we have.</p>
+      <p><strong>Equivalent fractions</strong> are fractions that look different but are really the same. 1/2 is the same as 2/4, which is the same as 4/8.</p>
+      <p><strong>Decimals</strong> are another way to write fractions where the denominator is 10 or 100.</p>
+      <ul>
+        <li><strong>0.1</strong> means 1 tenth (1/10)</li>
+        <li><strong>0.25</strong> means 25 hundredths (25/100 or 1/4)</li>
+        <li><strong>0.5</strong> means 5 tenths (1/2)</li>
+      </ul>
+      <button class="read-btn" data-read="A fraction is a slice of a whole thing. In the fraction three quarters, the bottom number four says how many slices the whole is cut into. The top number three says how many slices we have. Decimals are another way to write fractions. Nought point one means one tenth. Nought point five means one half.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div class="card" style="background:#fff8e8;">
+      <strong style="color:var(--terracotta-deep);">Equivalent fractions</strong>
+      <p style="margin:10px 0 0;">
+        <strong>1/2</strong> = <strong>2/4</strong> = <strong>4/8</strong> = <strong>5/10</strong> = <strong>0.5</strong>
+      </p>
+      <p style="margin:14px 0 0;">
+        <strong>1/4</strong> = <strong>2/8</strong> = <strong>25/100</strong> = <strong>0.25</strong>
+      </p>
+      <p style="margin:14px 0 0;">
+        <strong>3/4</strong> = <strong>6/8</strong> = <strong>75/100</strong> = <strong>0.75</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="measurement" class="page">
+  <span class="pill terra">Topic 5</span>
+  <h2>Measurement</h2>
+  <p class="lead">Time, money, length, and the space around a shape.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p><strong>Time.</strong> Read an analogue clock (the one with hands) and a 12-hour or 24-hour digital clock. Work out how long it is from one time to another.</p>
+      <p><strong>Money.</strong> Add and subtract pounds and pence. <span class="word" tabindex="0" data-def="pence: The small units of British money. 100 pence makes 1 pound.">100 pence</span> = <strong>&pound;1</strong>.</p>
+      <p><strong>Length.</strong> 100 cm = 1 m. 1,000 m = 1 km. 1,000 ml = 1 litre. 1,000 g = 1 kg.</p>
+      <p><strong>Perimeter</strong> is the distance all the way around the outside of a shape. For a rectangle, perimeter = (length + width) &times; 2.</p>
+      <p><strong>Area</strong> is the space inside a shape. For a rectangle, area = length &times; width.</p>
+      <button class="read-btn" data-read="Measurement. Time. Money. Length. And the space around a shape. Perimeter is the distance all the way around the outside of a shape. Area is the space inside a shape. For a rectangle, perimeter equals length plus width times two. Area equals length times width.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div class="card" style="background:var(--cream-2);">
+      <strong style="color:var(--terracotta-deep);">Quick conversions</strong>
+      <ul style="margin:10px 0 0; padding-left: 20px;">
+        <li>100 cm = 1 m</li>
+        <li>1,000 m = 1 km</li>
+        <li>1,000 ml = 1 litre</li>
+        <li>1,000 g = 1 kg</li>
+        <li>60 seconds = 1 minute</li>
+        <li>60 minutes = 1 hour</li>
+        <li>24 hours = 1 day</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="geometry" class="page dark-section">
+  <span class="pill ochre">Topic 6</span>
+  <h2>Geometry</h2>
+  <p class="lead">The maths of shapes, angles, and symmetry.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p><strong>2D shapes</strong> are flat. <strong>3D shapes</strong> have depth. In Year 4 you need to recognise and describe:</p>
+      <ul>
+        <li><strong class="high">Triangles</strong> &mdash; equilateral, isosceles, scalene, right-angled.</li>
+        <li><strong class="high">Quadrilaterals</strong> &mdash; square, rectangle, rhombus, parallelogram, trapezium.</li>
+        <li><strong class="high">Regular polygons</strong> &mdash; pentagon (5), hexagon (6), heptagon (7), octagon (8).</li>
+      </ul>
+      <p>A shape has a <span class="word" tabindex="0" data-def="line of symmetry: An imaginary line that splits a shape into two matching halves, like a mirror.">line of symmetry</span> if one half is a mirror image of the other. A square has 4 lines of symmetry. A circle has an infinite number!</p>
+      <p><strong class="high">Coordinates</strong> tell you a point&rsquo;s position. We write them as <strong class="high">(x, y)</strong> &mdash; how far across, then how far up. Always x before y.</p>
+      <button class="read-btn" data-read="Geometry is the maths of shapes, angles, and symmetry. Two D shapes are flat. Three D shapes have depth. A shape has a line of symmetry if one half is a mirror image of the other. A square has four lines of symmetry. Coordinates tell you a point's position. We write them x, y. How far across, then how far up.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <svg viewBox="0 0 200 200" style="width:100%; max-width:280px; background: var(--cream); border: 2px solid var(--cream); border-radius: 12px; padding: 12px;">
+        <rect x="40" y="40" width="120" height="120" fill="none" stroke="var(--ink)" stroke-width="3"/>
+        <line x1="100" y1="30" x2="100" y2="170" stroke="var(--terracotta)" stroke-width="2" stroke-dasharray="4 4"/>
+        <line x1="30" y1="100" x2="170" y2="100" stroke="var(--terracotta)" stroke-width="2" stroke-dasharray="4 4"/>
+        <line x1="40" y1="40" x2="160" y2="160" stroke="var(--terracotta)" stroke-width="2" stroke-dasharray="4 4"/>
+        <line x1="160" y1="40" x2="40" y2="160" stroke="var(--terracotta)" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="100" y="190" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="12" fill="var(--ink)">A square has 4 lines of symmetry</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="statistics" class="page">
+  <span class="pill jade">Topic 7</span>
+  <h2>Statistics</h2>
+  <p class="lead">Picking information out of a chart or graph.</p>
+  <div class="prose">
+    <p>In Year 4 we read and draw:</p>
+    <ul>
+      <li><strong>Bar charts</strong> &mdash; each bar shows a quantity. The taller the bar, the bigger the number.</li>
+      <li><strong>Pictograms</strong> &mdash; small pictures, each standing for a number (for example, one cat picture = 2 cats).</li>
+      <li><strong>Line graphs</strong> &mdash; dots joined by lines. They show how something changes over time, like temperature over a week.</li>
+    </ul>
+    <p>When you read a graph, always check the <strong>key</strong> or the <strong>scale</strong> first. A scale of &ldquo;2 per square&rdquo; means each square on the y-axis is worth 2, not 1.</p>
+    <button class="read-btn" data-read="In statistics we read and draw bar charts, pictograms, and line graphs. A bar chart has bars. The taller the bar, the bigger the number. A pictogram uses small pictures. A line graph has dots joined by lines, showing change over time. Always check the scale first.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+    </button>
+  </div>
+</section>
+
+<section id="practice" class="page cream2-section">
+  <span class="pill indigo">Practice</span>
+  <h2>Test Yourself!</h2>
+  <p class="lead">Ten fresh questions &mdash; they change every time you come back to this page.</p>
+  <div id="quiz-wrap" style="display:grid; gap:24px;"></div>
+  <div id="quiz-score"></div>
+  <p style="margin-top:24px; color:var(--ink-soft); font-style: italic;">Reload the page for a brand new set.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Year 4 Maths &middot; Key Stage 2.</strong> Covers place value, addition and subtraction, times tables up to 12&times;12, fractions and decimals, measurement (time, money, perimeter, area), geometry (shapes, symmetry, coordinates), and statistics (bar charts, pictograms, line graphs).</p>
+  <p><a href="index.html">&larr; Back to home</a></p>
+</footer>
+
+<script>
+(function() {
+  /* ---------- shared nav helpers ---------- */
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var id = tab.getAttribute('data-tab');
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  var sections = document.querySelectorAll('section.page');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var id = e.target.id;
+        tabs.forEach(function(t) {
+          t.setAttribute('aria-selected', t.getAttribute('data-tab') === id ? 'true' : 'false');
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s) { io.observe(s); });
+  document.querySelectorAll('[data-goto]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var t = document.getElementById(btn.getAttribute('data-goto'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* ---------- read-aloud ---------- */
+  if (!('speechSynthesis' in window)) {
+    document.querySelectorAll('[data-read]').forEach(function(btn) {
+      btn.disabled = true; btn.title = 'Your browser does not support read-aloud.'; btn.style.opacity = '0.5';
+    });
+  } else {
+    var synth = window.speechSynthesis, preferredVoice = null, keepAliveTimer = null, currentBtn = null;
+    function pickVoice() {
+      var voices = synth.getVoices();
+      preferredVoice = voices.find(function(v) { return /en[-_]GB/i.test(v.lang); })
+                    || voices.find(function(v) { return /^en/i.test(v.lang); }) || voices[0] || null;
+    }
+    pickVoice();
+    if (typeof synth.onvoiceschanged !== 'undefined') synth.addEventListener('voiceschanged', pickVoice);
+    function keepAlive() {
+      clearTimeout(keepAliveTimer);
+      if (synth.speaking) { synth.pause(); synth.resume(); keepAliveTimer = setTimeout(keepAlive, 8000); }
+    }
+    function resetBtn(btn) {
+      btn.setAttribute('aria-pressed', 'false');
+      var lbl = btn.querySelector('.read-label');
+      if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig;
+    }
+    document.querySelectorAll('[data-read]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (synth.paused) synth.resume();
+        if (currentBtn === btn) { synth.cancel(); clearTimeout(keepAliveTimer); resetBtn(btn); currentBtn = null; return; }
+        if (currentBtn) resetBtn(currentBtn);
+        synth.cancel(); clearTimeout(keepAliveTimer);
+        var u = new SpeechSynthesisUtterance(btn.getAttribute('data-read'));
+        u.rate = 0.9; u.pitch = 1.0; u.volume = 1.0;
+        if (preferredVoice) u.voice = preferredVoice;
+        u.onend = function() { clearTimeout(keepAliveTimer); resetBtn(btn); if (currentBtn === btn) currentBtn = null; };
+        u.onerror = u.onend;
+        btn.setAttribute('aria-pressed', 'true');
+        var lbl = btn.querySelector('.read-label');
+        if (lbl) { if (!lbl.dataset.orig) lbl.dataset.orig = lbl.textContent; lbl.textContent = 'Stop'; }
+        currentBtn = btn;
+        setTimeout(function() { synth.speak(u); keepAlive(); }, 50);
+      });
+    });
+    window.addEventListener('beforeunload', function() { try { synth.cancel(); } catch (e) {} });
+  }
+
+  /* ---------- image fallback placeholder ---------- */
+  document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('error', function() {
+      var wrap = this.closest('.photo') || this.parentNode;
+      var ph = document.createElement('div');
+      ph.className = 'placeholder';
+      ph.style.minHeight = (this.clientHeight || 220) + 'px';
+      var lbl = document.createElement('span');
+      lbl.className = 'label';
+      lbl.textContent = 'Photo: ' + (this.alt || this.getAttribute('src') || 'missing');
+      ph.appendChild(lbl);
+      this.replaceWith(ph);
+    });
+  });
+
+  /* ---------- randomised practice quiz ---------- */
+  function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  var TEMPLATES = [
+    // Place value
+    { topic: 'Place value', gen: function() { var a = rand(1000, 9999); var d = rand(0, 3); var digits = String(a).split('').reverse(); var place = ['ones','tens','hundreds','thousands'][d]; return { type: 'fill', q: 'In the number ' + a.toLocaleString() + ', what is the digit in the ' + place + ' column?', answer: digits[d], note: 'Count from the right: ones, tens, hundreds, thousands.' }; } },
+    { topic: 'Roman numerals', gen: function() { var pairs = [[1,'I'],[4,'IV'],[5,'V'],[6,'VI'],[9,'IX'],[10,'X'],[11,'XI'],[14,'XIV'],[19,'XIX'],[20,'XX'],[40,'XL'],[50,'L'],[90,'XC'],[100,'C']]; var p = pick(pairs); return { type: 'fill', q: 'What number is the Roman numeral ' + p[1] + '?', answer: p[0], note: 'Add the letters: I=1, V=5, X=10, L=50, C=100. If a smaller letter comes before a bigger one, subtract it.' }; } },
+    // Addition and subtraction
+    { topic: 'Addition', gen: function() { var a = rand(1000, 4500); var b = rand(1000, 4500); return { type: 'fill', q: a.toLocaleString() + ' + ' + b.toLocaleString() + ' = ?', answer: a + b, note: 'Line up the columns and add from the right. Carry any tens into the next column.' }; } },
+    { topic: 'Subtraction', gen: function() { var a = rand(3000, 9999); var b = rand(100, a - 100); return { type: 'fill', q: a.toLocaleString() + ' \u2212 ' + b.toLocaleString() + ' = ?', answer: a - b, note: 'Line up the columns and subtract from the right. Borrow from the next column if needed.' }; } },
+    // Times tables
+    { topic: 'Times tables', gen: function() { var a = rand(2, 12); var b = rand(2, 12); return { type: 'fill', q: a + ' \u00D7 ' + b + ' = ?', answer: a * b, note: a + ' times ' + b + ' is ' + (a * b) + '.' }; } },
+    { topic: 'Division', gen: function() { var b = rand(2, 12); var ans = rand(2, 12); return { type: 'fill', q: (b * ans) + ' \u00F7 ' + b + ' = ?', answer: ans, note: 'How many ' + b + 's fit into ' + (b * ans) + '? ' + ans + '.' }; } },
+    // Fractions
+    { topic: 'Equivalent fractions', gen: function() { var set = pick([['1/2','2/4'],['1/2','4/8'],['1/2','5/10'],['1/4','2/8'],['1/4','25/100'],['3/4','6/8'],['3/4','75/100'],['1/3','2/6'],['1/5','2/10']]); var opts = shuffle([set[1], set[0].split('/')[0] + '/' + (parseInt(set[0].split('/')[1]) + 1), '1/1', '0/' + set[0].split('/')[1]]); return { type: 'mcq', q: 'Which fraction is the same as ' + set[0] + '?', opts: opts, answer: opts.indexOf(set[1]), note: set[0] + ' and ' + set[1] + ' are the same amount \u2014 just cut into different-sized slices.' }; } },
+    { topic: 'Fractions as decimals', gen: function() { var pairs = [['1/2','0.5'],['1/4','0.25'],['3/4','0.75'],['1/10','0.1'],['1/100','0.01']]; var p = pick(pairs); return { type: 'fill', q: 'Write the fraction ' + p[0] + ' as a decimal.', answer: p[1], note: p[0] + ' equals ' + p[1] + '.' }; } },
+    // Measurement
+    { topic: 'Length conversion', gen: function() { var m = rand(2, 9); return { type: 'fill', q: 'How many centimetres are there in ' + m + ' metres?', answer: m * 100, note: '1 metre is 100 centimetres, so ' + m + ' \u00D7 100 = ' + (m * 100) + '.' }; } },
+    { topic: 'Time', gen: function() { var h = rand(2, 6); return { type: 'fill', q: 'How many minutes are there in ' + h + ' hours?', answer: h * 60, note: '1 hour is 60 minutes, so ' + h + ' \u00D7 60 = ' + (h * 60) + '.' }; } },
+    { topic: 'Money', gen: function() { var p = rand(125, 950); var pounds = Math.floor(p / 100); var pence = p % 100; return { type: 'fill', q: 'Write ' + p + 'p in pounds and pence (for example: \u00A32.35).', answer: '\u00a3' + pounds + '.' + (pence < 10 ? '0' : '') + pence, accept: ['\u00a3' + pounds + '.' + (pence < 10 ? '0' : '') + pence, pounds + '.' + (pence < 10 ? '0' : '') + pence, '\u00a3' + pounds + '.' + (pence < 10 ? '0' : '') + pence + '0'], note: '100 pence = \u00A31, so ' + p + 'p is \u00A3' + pounds + '.' + (pence < 10 ? '0' : '') + pence + '.' }; } },
+    { topic: 'Perimeter', gen: function() { var l = rand(3, 15); var w = rand(2, 12); return { type: 'fill', q: 'A rectangle is ' + l + 'cm long and ' + w + 'cm wide. What is its perimeter?', answer: 2 * (l + w), note: 'Perimeter = (length + width) \u00D7 2 = (' + l + ' + ' + w + ') \u00D7 2 = ' + (2 * (l + w)) + ' cm.' }; } },
+    { topic: 'Area', gen: function() { var l = rand(3, 12); var w = rand(2, 10); return { type: 'fill', q: 'A rectangle is ' + l + 'cm long and ' + w + 'cm wide. What is its area in square centimetres?', answer: l * w, note: 'Area = length \u00D7 width = ' + l + ' \u00D7 ' + w + ' = ' + (l * w) + ' cm\u00B2.' }; } },
+    // Geometry
+    { topic: 'Shapes', gen: function() { var set = pick([{ q: 'How many sides does a hexagon have?', answer: 6 }, { q: 'How many sides does a pentagon have?', answer: 5 }, { q: 'How many sides does an octagon have?', answer: 8 }, { q: 'How many sides does a heptagon have?', answer: 7 }, { q: 'How many sides does a quadrilateral have?', answer: 4 }, { q: 'How many lines of symmetry does a square have?', answer: 4 }, { q: 'How many lines of symmetry does an equilateral triangle have?', answer: 3 }, { q: 'How many faces does a cube have?', answer: 6 }, { q: 'How many edges does a cube have?', answer: 12 }, { q: 'How many vertices (corners) does a cube have?', answer: 8 }]); return { type: 'fill', q: set.q, answer: set.answer, note: 'Have a think and count carefully!' }; } },
+  ];
+
+  function makeQuestion(item, idx) {
+    var data = item.gen();
+    var card = document.createElement('div');
+    card.className = 'quiz';
+    var pill = document.createElement('span'); pill.className = 'pill ochre'; pill.textContent = 'Q' + (idx + 1) + ' \u00B7 ' + item.topic;
+    var h3 = document.createElement('h3'); h3.textContent = data.q;
+    card.appendChild(pill); card.appendChild(h3);
+
+    var explain = document.createElement('p'); explain.className = 'explain';
+
+    if (data.type === 'mcq') {
+      data.opts.forEach(function(o, oi) {
+        var b = document.createElement('button'); b.className = 'opt'; b.textContent = String.fromCharCode(65 + oi) + '. ' + o;
+        b.addEventListener('click', function() {
+          if (card.dataset.answered) return;
+          card.dataset.answered = '1';
+          card.querySelectorAll('.opt').forEach(function(bb, bi) {
+            bb.disabled = true;
+            if (bi === data.answer) bb.classList.add('correct');
+            else if (bi === oi) bb.classList.add('wrong');
+          });
+          var correct = oi === data.answer;
+          if (correct) score++;
+          answered++;
+          explain.textContent = (correct ? '\u2713 Yes! ' : 'Almost! The answer is ' + data.opts[data.answer] + '. ') + (data.note || '');
+          explain.classList.add('show');
+          updateScore();
+        });
+        card.appendChild(b);
+      });
+    } else {
+      var row = document.createElement('div'); row.className = 'fill-row';
+      var input = document.createElement('input');
+      input.type = 'text'; input.className = 'fill-input'; input.autocomplete = 'off'; input.inputMode = 'text';
+      input.placeholder = 'Type your answer';
+      input.setAttribute('aria-label', 'Your answer');
+      var btn = document.createElement('button'); btn.className = 'fill-submit'; btn.textContent = 'Check';
+      row.appendChild(input); row.appendChild(btn);
+      function submit() {
+        if (card.dataset.answered) return;
+        var raw = input.value.trim();
+        if (!raw) return;
+        card.dataset.answered = '1';
+        input.disabled = true; btn.disabled = true;
+        var target = String(data.answer).toLowerCase().trim();
+        var accepted = (data.accept || [data.answer]).map(function(x) { return String(x).toLowerCase().trim(); });
+        var correct = accepted.indexOf(raw.toLowerCase()) !== -1;
+        row.classList.add(correct ? 'correct' : 'wrong');
+        if (correct) score++;
+        answered++;
+        explain.textContent = (correct ? '\u2713 Yes! ' : 'Almost! The answer is ' + data.answer + '. ') + (data.note || '');
+        explain.classList.add('show');
+        updateScore();
+      }
+      btn.addEventListener('click', submit);
+      input.addEventListener('keydown', function(e) { if (e.key === 'Enter') submit(); });
+      card.appendChild(row);
+    }
+
+    card.appendChild(explain);
+    return card;
+  }
+
+  var chosen = shuffle(TEMPLATES).slice(0, 10);
+  var answered = 0, score = 0;
+  var quizWrap = document.getElementById('quiz-wrap');
+  var scoreEl = document.getElementById('quiz-score');
+  chosen.forEach(function(item, i) { quizWrap.appendChild(makeQuestion(item, i)); });
+
+  function updateScore() {
+    if (answered !== chosen.length) return;
+    var box = document.createElement('div');
+    box.className = 'card quiz-score-box';
+    var h3 = document.createElement('h3'); h3.textContent = 'You got ' + score + ' out of ' + chosen.length + '!';
+    var p = document.createElement('p'); p.style.cssText = 'margin:0;';
+    p.textContent = score === chosen.length ? '\uD83C\uDF1F Perfect! Maths champion.' : score >= 7 ? 'Great job! You know your stuff.' : score >= 4 ? 'Good try! Reload for a fresh set and practise again.' : 'Keep going! Reload the page and try another set.';
+    box.appendChild(h3); box.appendChild(p);
+    scoreEl.innerHTML = ''; scoreEl.appendChild(box);
+  }
+})();
+</script>
+
+</body>
+</html>

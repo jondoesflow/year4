@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 4 Science &mdash; Investigating the World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back-link" href="index.html">&larr; Home</a>
+</div>
+
+<header class="hero">
+  <div class="kicker">Year 4 &middot; Key Stage 2</div>
+  <h1><span class="accent">Science</span><br>Investigating the World</h1>
+  <p class="tagline">
+    Five friendly topics covering living things, the human body, states of matter,
+    sound, and electricity &mdash; plus a quiz to check what you remember.
+  </p>
+  <div class="hero-actions">
+    <button class="read-btn" data-read="Year 4 Science. Investigating the world. Five friendly topics covering living things, the human body, states of matter, sound, and electricity. Plus a quiz to check what you remember.">
+      <span aria-hidden="true">&#128266;</span><span class="read-label">Read this page aloud</span>
+    </button>
+    <button class="read-btn start" data-goto="living">Start reading &rarr;</button>
+  </div>
+  <div class="glyph-strip" aria-hidden="true">
+    <div class="glyph" style="background:var(--jade);color:var(--cream);">&#127807;</div>
+    <div class="glyph" style="background:var(--terracotta);color:#fff;">&#129436;</div>
+    <div class="glyph" style="background:var(--indigo);color:var(--cream);">&#9878;</div>
+    <div class="glyph" style="background:var(--ochre);color:var(--ink);">&#9889;</div>
+    <div class="glyph">&#127758;</div>
+  </div>
+</header>
+
+<div class="band"></div>
+
+<nav class="tabs" aria-label="Topics">
+  <div class="tabs-inner" role="tablist">
+    <button class="tab" role="tab" data-tab="living" aria-selected="true">Living Things</button>
+    <button class="tab" role="tab" data-tab="body" aria-selected="false">The Human Body</button>
+    <button class="tab" role="tab" data-tab="matter" aria-selected="false">States of Matter</button>
+    <button class="tab" role="tab" data-tab="sound" aria-selected="false">Sound</button>
+    <button class="tab" role="tab" data-tab="electricity" aria-selected="false">Electricity</button>
+    <button class="tab" role="tab" data-tab="practice" aria-selected="false">Test Yourself</button>
+  </div>
+</nav>
+
+<main>
+
+<section id="living" class="page">
+  <span class="pill jade">Topic 1</span>
+  <h2>Living Things and their Habitats</h2>
+  <p class="lead">Every living thing belongs somewhere &mdash; and belongs to a group.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>A <span class="word" tabindex="0" data-def="habitat: The natural home of an animal or plant.">habitat</span> is the place where an animal or plant lives. A fox lives in woodland. A seahorse lives in the ocean. A camel lives in the desert.</p>
+      <p>Scientists sort living things into groups. This is called <span class="word" tabindex="0" data-def="classification: Sorting living things into groups based on what they have in common.">classification</span>. The biggest groups are:</p>
+      <ul>
+        <li><strong>Vertebrates</strong> &mdash; animals with a backbone (fish, amphibians, reptiles, birds, mammals).</li>
+        <li><strong>Invertebrates</strong> &mdash; animals without a backbone (insects, spiders, worms, jellyfish).</li>
+        <li><strong>Plants</strong> &mdash; make their own food using sunlight.</li>
+        <li><strong>Fungi</strong> &mdash; mushrooms, mould, yeast. Not plants, not animals.</li>
+      </ul>
+      <p>A <span class="word" tabindex="0" data-def="food chain: A picture showing who eats what, with arrows going from the eaten to the eater.">food chain</span> shows who eats what. It usually starts with a plant (which makes food from sunlight), then a plant-eater, then a meat-eater. Arrows point from the eaten to the eater.</p>
+      <p>Example: <strong>grass &rarr; rabbit &rarr; fox</strong>.</p>
+      <button class="read-btn" data-read="A habitat is the place where an animal or plant lives. Scientists sort living things into groups. This is called classification. Vertebrates have a backbone. Invertebrates do not. A food chain shows who eats what. Grass is eaten by a rabbit, which is eaten by a fox.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="photo">
+        <img src="images/food-chain.jpg" alt="Food chain diagram showing grass, rabbit, and fox with arrows">
+        <div class="caption">A simple food chain: grass &rarr; rabbit &rarr; fox.</div>
+      </div>
+      <div class="card" style="margin-top:20px; background:var(--cream-2);">
+        <strong style="color:var(--terracotta-deep);">Producer, consumer, predator</strong>
+        <p style="margin:8px 0 0;"><strong>Producers</strong> (plants) make their own food. <strong>Consumers</strong> eat other living things. A <strong>predator</strong> hunts other animals; the hunted animal is called its <strong>prey</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="body" class="page cream2-section">
+  <span class="pill terra">Topic 2</span>
+  <h2>Animals, including Humans</h2>
+  <p class="lead">How food travels through your body, and the four types of teeth that start the journey.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Your <span class="word" tabindex="0" data-def="digestive system: The organs in your body that break down food and absorb goodness from it.">digestive system</span> breaks food down so your body can use the goodness. It has six main parts:</p>
+      <ol>
+        <li><strong>Mouth</strong> &mdash; teeth chew, saliva softens.</li>
+        <li><strong>Oesophagus</strong> &mdash; a tube that squeezes food down to the stomach.</li>
+        <li><strong>Stomach</strong> &mdash; acid and muscles mash food into a soupy mix.</li>
+        <li><strong>Small intestine</strong> &mdash; the goodness (nutrients) passes into the blood here.</li>
+        <li><strong>Large intestine</strong> &mdash; soaks up the water.</li>
+        <li><strong>Bottom</strong> &mdash; the waste leaves the body.</li>
+      </ol>
+      <p>Humans have <strong>four types of teeth</strong>, each with a different job:</p>
+      <ul>
+        <li><strong>Incisors</strong> &mdash; the flat front teeth. For <em>biting</em>.</li>
+        <li><strong>Canines</strong> &mdash; the pointy ones. For <em>tearing</em>.</li>
+        <li><strong>Premolars</strong> &mdash; flatter, behind the canines. For <em>crushing</em>.</li>
+        <li><strong>Molars</strong> &mdash; big flat ones at the back. For <em>grinding</em>.</li>
+      </ul>
+      <button class="read-btn" data-read="Your digestive system breaks food down so your body can use it. Food goes through the mouth, the oesophagus, the stomach, the small intestine, and the large intestine. Humans have four types of teeth. Incisors for biting. Canines for tearing. Premolars for crushing. Molars for grinding.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="photo">
+        <img src="images/teeth-diagram.jpg" alt="Human teeth diagram showing incisors, canines, premolars and molars">
+        <div class="caption">The four types of human teeth.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="matter" class="page">
+  <span class="pill indigo">Topic 3</span>
+  <h2>States of Matter</h2>
+  <p class="lead">Everything around you is a <strong>solid</strong>, a <strong>liquid</strong>, or a <strong>gas</strong>.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Matter is anything that takes up space. It comes in three states:</p>
+      <ul>
+        <li><strong>Solid</strong> &mdash; keeps its shape and size. Its particles are packed tightly in a pattern (ice, wood, a book).</li>
+        <li><strong>Liquid</strong> &mdash; keeps its size but changes shape to fit its container. Its particles slide past each other (water, juice, oil).</li>
+        <li><strong>Gas</strong> &mdash; changes both shape AND size to fill any space. Its particles zoom around freely (air, steam).</li>
+      </ul>
+      <p>Matter changes from one state to another when it is <strong>heated</strong> or <strong>cooled</strong>:</p>
+      <ul>
+        <li>Solid &rarr; liquid = <span class="word" tabindex="0" data-def="melting: When a solid turns into a liquid because it has been heated.">melting</span> (ice into water).</li>
+        <li>Liquid &rarr; gas = <span class="word" tabindex="0" data-def="evaporation: When a liquid turns into a gas. Happens slowly at room temperature; quickly when you boil water.">evaporation</span> (puddle drying in the sun).</li>
+        <li>Gas &rarr; liquid = <span class="word" tabindex="0" data-def="condensation: When a gas turns back into a liquid, usually when it cools down. The mist on a cold window is condensation.">condensation</span> (steam on a cold window).</li>
+        <li>Liquid &rarr; solid = <strong>freezing</strong> (water into ice).</li>
+      </ul>
+      <p>This is the <strong>water cycle</strong>: the sun heats rivers and seas, water evaporates into clouds, the clouds cool, and it rains back down. Over and over, forever.</p>
+      <button class="read-btn" data-read="Matter comes in three states. Solid keeps its shape. Liquid keeps its size but changes shape. Gas fills any space. Matter changes state when heated or cooled. Melting, evaporation, condensation, and freezing. The water cycle repeats this forever.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <svg viewBox="0 0 300 280" style="width: 100%; max-width: 320px; background: var(--cream); border: 2px solid var(--ink); border-radius: 14px; padding: 12px;">
+        <circle cx="60" cy="200" r="30" fill="var(--indigo)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="60" y="205" text-anchor="middle" fill="#fff" font-family="Lexend" font-weight="700" font-size="14">SOLID</text>
+        <circle cx="150" cy="150" r="30" fill="var(--jade)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="150" y="155" text-anchor="middle" fill="#fff" font-family="Lexend" font-weight="700" font-size="13">LIQUID</text>
+        <circle cx="240" cy="80" r="30" fill="var(--ochre)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="240" y="85" text-anchor="middle" fill="var(--ink)" font-family="Lexend" font-weight="700" font-size="14">GAS</text>
+        <path d="M90,190 Q120,170 120,150" fill="none" stroke="var(--terracotta)" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="80" y="155" font-family="Atkinson Hyperlegible" font-size="11" fill="var(--terracotta-deep)">melt</text>
+        <path d="M180,140 Q210,110 210,80" fill="none" stroke="var(--terracotta)" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="165" y="108" font-family="Atkinson Hyperlegible" font-size="11" fill="var(--terracotta-deep)">evaporate</text>
+        <path d="M225,105 Q200,135 180,155" fill="none" stroke="var(--indigo)" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arr)"/>
+        <text x="225" y="150" font-family="Atkinson Hyperlegible" font-size="11" fill="var(--indigo)">condense</text>
+        <path d="M130,170 Q100,195 90,210" fill="none" stroke="var(--indigo)" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arr)"/>
+        <text x="125" y="205" font-family="Atkinson Hyperlegible" font-size="11" fill="var(--indigo)">freeze</text>
+        <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0 0, 8 4, 0 8" fill="currentColor"/></marker></defs>
+        <text x="150" y="265" text-anchor="middle" font-family="Atkinson Hyperlegible" font-style="italic" font-size="12" fill="var(--ink-soft)">Heat moves things right. Cool moves them left.</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="sound" class="page cream2-section">
+  <span class="pill ochre">Topic 4</span>
+  <h2>Sound</h2>
+  <p class="lead">Sounds are tiny wiggles in the air.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Sound is made when something <span class="word" tabindex="0" data-def="vibrate: To shake back and forth very quickly.">vibrates</span>. The shaking pushes the air, and the air carries the wiggle to your ear.</p>
+      <p>Try it: put your hand on your throat and hum. You can feel it vibrating!</p>
+      <p>Two things change how we hear a sound:</p>
+      <ul>
+        <li><strong>Pitch</strong> &mdash; how HIGH or LOW a sound is. A whistle has a high pitch. A drum has a low pitch. <em>Faster vibrations = higher pitch.</em></li>
+        <li><strong>Volume</strong> (or loudness) &mdash; how LOUD or QUIET a sound is. <em>Bigger vibrations = louder sound.</em></li>
+      </ul>
+      <p>Sound gets <strong>quieter the further away</strong> you are from the source. A jet plane sounds thundering on the runway but a whisper when it&rsquo;s miles above you.</p>
+      <p>Sound can travel through <strong>solids</strong>, <strong>liquids</strong>, and <strong>gases</strong>. But it <strong>cannot travel through a vacuum</strong> (empty space with no air). That&rsquo;s why space is silent.</p>
+      <button class="read-btn" data-read="Sound is made when something vibrates. The shaking pushes the air, and the air carries the wiggle to your ear. Pitch is how high or low a sound is. Volume is how loud or quiet a sound is. Sound can travel through solids, liquids, and gases. But sound cannot travel through a vacuum, so space is silent.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <div class="photo">
+        <img src="images/sound-waves.jpg" alt="Illustration of sound waves rippling out from a source">
+        <div class="caption">Sound ripples out from its source like waves on a pond.</div>
+      </div>
+      <div class="card" style="margin-top:20px; background:#fff8e8;">
+        <strong style="color:var(--terracotta-deep);">Try this at home</strong>
+        <p style="margin:8px 0 0;">Stretch a rubber band over an empty cup. Ping it. Can you see it vibrating? Now stretch a second band tighter. Does it sound higher or lower?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="electricity" class="page dark-section">
+  <span class="pill ochre">Topic 5</span>
+  <h2>Electricity</h2>
+  <p class="lead">Tiny particles racing around a loop make our lights glow.</p>
+  <div class="two-col">
+    <div class="prose">
+      <p>Electricity is a flow of tiny particles called <span class="word" tabindex="0" data-def="electrons: Tiny particles that carry electricity around a circuit.">electrons</span> through a wire. They can only flow if they have a complete loop to travel around. This loop is called a <span class="word" tabindex="0" data-def="circuit: A complete loop of wires and components that electricity can flow around.">circuit</span>.</p>
+      <p>A simple circuit has three parts:</p>
+      <ul>
+        <li><strong class="high">A power source</strong> &mdash; like a battery or the mains plug.</li>
+        <li><strong class="high">Wires</strong> &mdash; the road the electricity travels along.</li>
+        <li><strong class="high">A component</strong> &mdash; like a bulb, buzzer, or motor that DOES something with the electricity.</li>
+      </ul>
+      <p>If the circuit has a <strong class="high">break</strong> anywhere, nothing works. That&rsquo;s what a <strong class="high">switch</strong> does &mdash; it creates or closes a gap in the circuit.</p>
+      <p><strong class="high">Conductors</strong> let electricity flow through them (copper, gold, iron, most metals). <strong class="high">Insulators</strong> block electricity (plastic, rubber, wood, glass). Your plug has metal pins (conductor) and a plastic case (insulator) &mdash; that&rsquo;s why they&rsquo;re safe to touch.</p>
+      <button class="read-btn" data-read="Electricity is a flow of tiny particles called electrons through a wire. They can only flow if they have a complete loop called a circuit. A simple circuit has a power source, wires, and a component like a bulb. Conductors let electricity through, like metal. Insulators block it, like plastic and rubber.">
+        <span aria-hidden="true">&#128266;</span><span class="read-label">Read to me</span>
+      </button>
+    </div>
+    <div>
+      <svg viewBox="0 0 260 200" style="width: 100%; max-width: 300px; background: var(--cream); border: 2px solid var(--cream); border-radius: 14px; padding: 16px;">
+        <!-- Battery -->
+        <rect x="20" y="90" width="50" height="30" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+        <line x1="30" y1="85" x2="30" y2="125" stroke="var(--ink)" stroke-width="4"/>
+        <line x1="60" y1="95" x2="60" y2="115" stroke="var(--ink)" stroke-width="2"/>
+        <text x="45" y="140" text-anchor="middle" font-size="11" font-family="Atkinson Hyperlegible" fill="var(--ink)">battery</text>
+        <!-- wires top -->
+        <line x1="45" y1="90" x2="45" y2="40" stroke="var(--terracotta)" stroke-width="2.5"/>
+        <line x1="45" y1="40" x2="200" y2="40" stroke="var(--terracotta)" stroke-width="2.5"/>
+        <line x1="200" y1="40" x2="200" y2="85" stroke="var(--terracotta)" stroke-width="2.5"/>
+        <!-- bulb -->
+        <circle cx="200" cy="105" r="18" fill="var(--ochre)" stroke="var(--ink)" stroke-width="2.5"/>
+        <line x1="192" y1="98" x2="208" y2="112" stroke="var(--ink)" stroke-width="1.5"/>
+        <line x1="208" y1="98" x2="192" y2="112" stroke="var(--ink)" stroke-width="1.5"/>
+        <text x="200" y="145" text-anchor="middle" font-size="11" font-family="Atkinson Hyperlegible" fill="var(--ink)">bulb</text>
+        <!-- wires bottom -->
+        <line x1="200" y1="125" x2="200" y2="170" stroke="var(--terracotta)" stroke-width="2.5"/>
+        <line x1="200" y1="170" x2="45" y2="170" stroke="var(--terracotta)" stroke-width="2.5"/>
+        <line x1="45" y1="170" x2="45" y2="120" stroke="var(--terracotta)" stroke-width="2.5"/>
+        <text x="130" y="192" text-anchor="middle" font-size="11" font-family="Atkinson Hyperlegible" font-style="italic" fill="var(--ink-soft)">A complete circuit lights the bulb.</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="practice" class="page">
+  <span class="pill indigo">Practice</span>
+  <h2>Test Yourself!</h2>
+  <p class="lead">Ten questions drawn from a big pool &mdash; order is different every time you reload.</p>
+  <div id="quiz-wrap" style="display:grid; gap:24px;"></div>
+  <div id="quiz-score"></div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Year 4 Science &middot; Key Stage 2.</strong> Covers living things and their habitats (classification, food chains), animals including humans (digestion, teeth), states of matter (melting, evaporation, condensation, the water cycle), sound (pitch, volume, vibrations), and electricity (simple circuits, conductors and insulators).</p>
+  <p><a href="index.html">&larr; Back to home</a></p>
+</footer>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab) { tab.addEventListener('click', function() { var t = document.getElementById(tab.getAttribute('data-tab')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+  var sections = document.querySelectorAll('section.page');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { var id = e.target.id; tabs.forEach(function(t) { t.setAttribute('aria-selected', t.getAttribute('data-tab') === id ? 'true' : 'false'); }); }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s) { io.observe(s); });
+  document.querySelectorAll('[data-goto]').forEach(function(btn) { btn.addEventListener('click', function() { var t = document.getElementById(btn.getAttribute('data-goto')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+
+  if (!('speechSynthesis' in window)) {
+    document.querySelectorAll('[data-read]').forEach(function(btn) { btn.disabled = true; btn.title = 'Your browser does not support read-aloud.'; btn.style.opacity = '0.5'; });
+  } else {
+    var synth = window.speechSynthesis, preferredVoice = null, keepAliveTimer = null, currentBtn = null;
+    function pickVoice() { var v = synth.getVoices(); preferredVoice = v.find(function(x) { return /en[-_]GB/i.test(x.lang); }) || v.find(function(x) { return /^en/i.test(x.lang); }) || v[0] || null; }
+    pickVoice();
+    if (typeof synth.onvoiceschanged !== 'undefined') synth.addEventListener('voiceschanged', pickVoice);
+    function keepAlive() { clearTimeout(keepAliveTimer); if (synth.speaking) { synth.pause(); synth.resume(); keepAliveTimer = setTimeout(keepAlive, 8000); } }
+    function resetBtn(btn) { btn.setAttribute('aria-pressed', 'false'); var lbl = btn.querySelector('.read-label'); if (lbl && lbl.dataset.orig) lbl.textContent = lbl.dataset.orig; }
+    document.querySelectorAll('[data-read]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (synth.paused) synth.resume();
+        if (currentBtn === btn) { synth.cancel(); clearTimeout(keepAliveTimer); resetBtn(btn); currentBtn = null; return; }
+        if (currentBtn) resetBtn(currentBtn); synth.cancel(); clearTimeout(keepAliveTimer);
+        var u = new SpeechSynthesisUtterance(btn.getAttribute('data-read')); u.rate = 0.9; u.pitch = 1.0; u.volume = 1.0;
+        if (preferredVoice) u.voice = preferredVoice;
+        u.onend = function() { clearTimeout(keepAliveTimer); resetBtn(btn); if (currentBtn === btn) currentBtn = null; };
+        u.onerror = u.onend;
+        btn.setAttribute('aria-pressed', 'true');
+        var lbl = btn.querySelector('.read-label'); if (lbl) { if (!lbl.dataset.orig) lbl.dataset.orig = lbl.textContent; lbl.textContent = 'Stop'; }
+        currentBtn = btn;
+        setTimeout(function() { synth.speak(u); keepAlive(); }, 50);
+      });
+    });
+    window.addEventListener('beforeunload', function() { try { synth.cancel(); } catch (e) {} });
+  }
+  document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('error', function() {
+      var ph = document.createElement('div'); ph.className = 'placeholder';
+      ph.style.minHeight = (this.clientHeight || 220) + 'px';
+      var lbl = document.createElement('span'); lbl.className = 'label'; lbl.textContent = 'Photo: ' + (this.alt || this.getAttribute('src') || 'missing');
+      ph.appendChild(lbl); this.replaceWith(ph);
+    });
+  });
+
+  /* ---------- static quiz pool, shuffled per visit ---------- */
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var POOL = [
+    { topic: 'Living things', q: 'Which group do animals with a backbone belong to?', opts: ['Invertebrates','Vertebrates','Plants','Fungi'], answer: 1, note: 'A backbone means vertebrate. Fish, birds, and mammals all have one.' },
+    { topic: 'Living things', q: 'Which is an invertebrate?', opts: ['Dog','Fish','Spider','Rabbit'], answer: 2, note: 'Spiders have no backbone, so they are invertebrates.' },
+    { topic: 'Food chains', q: 'In the food chain grass \u2192 rabbit \u2192 fox, what is the fox?', opts: ['A producer','A consumer and predator','A plant','A prey animal'], answer: 1, note: 'The fox eats other animals, so it is a consumer and a predator.' },
+    { topic: 'Food chains', q: 'In the food chain grass \u2192 rabbit \u2192 fox, what does the arrow mean?', opts: ['Runs away from','Is eaten by','Sleeps near','Looks like'], answer: 1, note: 'Arrows in food chains go from the eaten to the eater.' },
+    { topic: 'Digestion', q: 'Which body part breaks food into a soupy mix with acid?', opts: ['Mouth','Oesophagus','Stomach','Small intestine'], answer: 2, note: 'The stomach churns food with acid and muscles.' },
+    { topic: 'Digestion', q: 'Where do the goodness (nutrients) pass into the blood?', opts: ['Stomach','Small intestine','Large intestine','Oesophagus'], answer: 1, note: 'The small intestine absorbs nutrients into the blood.' },
+    { topic: 'Teeth', q: 'Which teeth are the flat ones at the front, for biting?', opts: ['Molars','Premolars','Canines','Incisors'], answer: 3, note: 'Incisors are the flat front teeth, used for biting.' },
+    { topic: 'Teeth', q: 'Which teeth are the big flat ones at the back for grinding?', opts: ['Incisors','Canines','Molars','Premolars'], answer: 2, note: 'Molars grind food at the back of the mouth.' },
+    { topic: 'Teeth', q: 'Which teeth are the pointy ones for tearing?', opts: ['Incisors','Canines','Premolars','Molars'], answer: 1, note: 'Canines are the pointy teeth for tearing.' },
+    { topic: 'States of matter', q: 'Which state of matter KEEPS its shape and its size?', opts: ['Solid','Liquid','Gas','None of them'], answer: 0, note: 'A solid keeps its shape and size.' },
+    { topic: 'States of matter', q: 'What happens when ice melts?', opts: ['Solid \u2192 liquid','Liquid \u2192 gas','Gas \u2192 liquid','Liquid \u2192 solid'], answer: 0, note: 'Melting turns a solid into a liquid.' },
+    { topic: 'States of matter', q: 'What is it called when a gas turns back into a liquid?', opts: ['Evaporation','Melting','Condensation','Freezing'], answer: 2, note: 'Condensation happens when a gas cools to a liquid \u2014 like mist on a cold window.' },
+    { topic: 'Water cycle', q: 'Which step in the water cycle turns water from the sea into clouds?', opts: ['Freezing','Evaporation','Condensation','Melting'], answer: 1, note: 'The sun heats the sea, water evaporates, and rises as vapour into the sky.' },
+    { topic: 'Sound', q: 'Sound is made when something&hellip;', opts: ['glows','vibrates','melts','freezes'], answer: 1, note: 'Vibration pushes air particles and carries the sound to your ear.' },
+    { topic: 'Sound', q: 'What does the pitch of a sound describe?', opts: ['How loud it is','How high or low it is','How far away it is','How long it lasts'], answer: 1, note: 'Pitch is how high or low a sound is.' },
+    { topic: 'Sound', q: 'What makes a sound LOUDER?', opts: ['Smaller vibrations','Slower vibrations','Bigger vibrations','No vibrations'], answer: 2, note: 'Bigger vibrations make a louder sound.' },
+    { topic: 'Sound', q: 'Why is there no sound in space?', opts: ['Space is dark','There is no air for sound to travel through','Astronauts don\u2019t listen','Sound freezes in space'], answer: 1, note: 'Sound needs something to travel through. A vacuum has nothing to carry vibrations.' },
+    { topic: 'Electricity', q: 'What do we call a complete loop that electricity flows around?', opts: ['A battery','A circuit','A switch','A bulb'], answer: 1, note: 'A complete loop is a circuit.' },
+    { topic: 'Electricity', q: 'Which of these is a CONDUCTOR?', opts: ['Plastic','Rubber','Copper','Wood'], answer: 2, note: 'Metals like copper are conductors \u2014 electricity flows through them.' },
+    { topic: 'Electricity', q: 'Which of these is an INSULATOR?', opts: ['Iron','Gold','Rubber','Copper'], answer: 2, note: 'Rubber blocks electricity, so it is an insulator.' },
+    { topic: 'Electricity', q: 'What does a switch do?', opts: ['Makes the bulb louder','Creates or closes a gap in the circuit','Stores electricity','Fixes broken wires'], answer: 1, note: 'A switch opens or closes the circuit.' }
+  ];
+
+  var chosen = shuffle(POOL).slice(0, 10);
+  var answered = 0, score = 0;
+  var quizWrap = document.getElementById('quiz-wrap');
+  var scoreEl = document.getElementById('quiz-score');
+
+  chosen.forEach(function(data, i) {
+    var card = document.createElement('div'); card.className = 'quiz';
+    var pill = document.createElement('span'); pill.className = 'pill ochre'; pill.textContent = 'Q' + (i + 1) + ' \u00B7 ' + data.topic;
+    var h3 = document.createElement('h3'); h3.textContent = data.q;
+    card.appendChild(pill); card.appendChild(h3);
+    var explain = document.createElement('p'); explain.className = 'explain';
+
+    data.opts.forEach(function(o, oi) {
+      var b = document.createElement('button'); b.className = 'opt'; b.textContent = String.fromCharCode(65 + oi) + '. ' + o;
+      b.addEventListener('click', function() {
+        if (card.dataset.answered) return;
+        card.dataset.answered = '1';
+        card.querySelectorAll('.opt').forEach(function(bb, bi) {
+          bb.disabled = true;
+          if (bi === data.answer) bb.classList.add('correct');
+          else if (bi === oi) bb.classList.add('wrong');
+        });
+        var correct = oi === data.answer;
+        if (correct) score++;
+        answered++;
+        explain.textContent = (correct ? '\u2713 Yes! ' : 'Almost! The answer is ' + data.opts[data.answer] + '. ') + (data.note || '');
+        explain.classList.add('show');
+        updateScore();
+      });
+      card.appendChild(b);
+    });
+    card.appendChild(explain);
+    quizWrap.appendChild(card);
+  });
+
+  function updateScore() {
+    if (answered !== chosen.length) return;
+    var box = document.createElement('div'); box.className = 'card quiz-score-box';
+    var h3 = document.createElement('h3'); h3.textContent = 'You got ' + score + ' out of ' + chosen.length + '!';
+    var p = document.createElement('p'); p.style.cssText = 'margin:0;';
+    p.textContent = score === chosen.length ? '\uD83C\uDF1F Perfect! Little scientist.' : score >= 7 ? 'Great job!' : score >= 4 ? 'Good try! Reload for a new mix.' : 'Keep going! Reload and try again.';
+    box.appendChild(h3); box.appendChild(p);
+    scoreEl.innerHTML = ''; scoreEl.appendChild(box);
+  }
+})();
+</script>
+
+</body>
+</html>
