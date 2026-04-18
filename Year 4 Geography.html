@@ -1,242 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rivers and Streams &mdash; Year 4 Geography</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 4 Geography &mdash; Rivers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF6EC;
+      --cream-2: #F4ECDB;
+      --ink: #1F2A36;
+      --ink-soft: #4A5868;
+      --rule: #E3D9C2;
+      --river: #2E7B9A;
+      --river-soft: #D8E9F0;
+      --river-deep: #1E4E68;
+      --gold: #D4A24C;
+      --fs-body: 19px;
+      --lh: 1.75;
+      --maxw: 68ch;
+      --font-body: 'Lexend', system-ui, sans-serif;
+      --font-display: 'Atkinson Hyperlegible', serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: var(--lh);
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--ink);
+    }
+    p { max-width: var(--maxw); margin: 0 0 1em 0; }
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(6px);
+    }
+    .topbar-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 14px 32px;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .logo {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 18px; letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--ink);
+    }
+    .logo-mark {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--river) 0%, var(--gold) 50%, var(--river-deep) 100%);
+      display: grid; place-items: center; color: white; font-size: 16px;
+      font-family: var(--font-display); font-weight: 700;
+    }
+    .topnav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+    .topnav a {
+      padding: 8px 14px; border-radius: 8px;
+      text-decoration: none; font-size: 15px; font-weight: 500;
+      color: var(--ink-soft);
+      transition: background .15s, color .15s;
+    }
+    .topnav a:hover { background: var(--cream-2); color: var(--ink); }
+    .topnav a.river:hover { background: var(--river-soft); color: var(--river-deep); }
+
+    .tools {
+      display: flex; gap: 8px; align-items: center;
+      padding-left: 16px; border-left: 1px solid var(--rule);
+    }
+    .tool-btn {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      border: 1px solid var(--rule); background: var(--cream);
+      padding: 6px 10px; border-radius: 6px; cursor: pointer;
+      color: var(--ink-soft);
+    }
+    .tool-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 64px 32px 48px;
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
+    .hero h1 { font-size: 64px; line-height: 1.05; margin-bottom: 20px; }
+    .hero h1 .underline { background-image: linear-gradient(transparent 65%, rgba(46,123,154,0.3) 65%); }
+    .hero-lead { font-size: 20px; line-height: 1.7; color: var(--ink-soft); max-width: 52ch; }
+    .hero-pills { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+    .pill {
+      padding: 8px 16px; border-radius: 999px;
+      font-size: 15px; font-weight: 500;
+      border: 1.5px solid currentColor;
+    }
+    .pill.river { color: var(--river-deep); background: var(--river-soft); border-color: transparent; }
+    .hero-visual {
+      aspect-ratio: 4/5;
+      border-radius: 20px;
+      background: var(--cream-2);
+      border: 1px solid var(--rule);
+      position: relative; overflow: hidden;
+    }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block; }
+
+    .unit {
+      padding: 80px 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .unit.river { background: linear-gradient(180deg, var(--cream) 0%, var(--river-soft) 100%); }
+    .unit-inner { max-width: 1200px; margin: 0 auto; }
+
+    .unit-head {
+      display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: end;
+      margin-bottom: 48px;
+    }
+    .unit-num {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 96px; line-height: 1; opacity: 0.18;
+    }
+    .unit.river .unit-num, .unit.river .unit-term { color: var(--river-deep); }
+    .unit-term {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .unit h2 { font-size: 54px; line-height: 1.05; max-width: 14ch; }
+    .unit-intro {
+      font-size: 20px; line-height: 1.7; max-width: 56ch; margin-top: 20px;
+      color: var(--ink-soft);
+    }
+    .unit-meta { text-align: right; font-size: 14px; color: var(--ink-soft); min-width: 160px; }
+    .unit-meta .term-label { font-weight: 600; color: var(--ink); }
+
+    .lesson {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 28px;
+      border: 1px solid var(--rule);
+      display: grid; grid-template-columns: 260px 1fr; gap: 48px;
+    }
+    .lesson-num {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 12px;
+    }
+    .lesson h3 { font-size: 30px; line-height: 1.15; margin-bottom: 20px; }
+    .lesson-aside { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
+    .learn-box {
+      background: var(--cream-2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      border-left: 4px solid var(--gold);
+    }
+    .learn-box h4 {
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 10px; font-weight: 700;
+    }
+    .learn-box ul { margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.65; }
+    .learn-box li { margin-bottom: 6px; }
+
+    .lesson-body p { font-size: 19px; }
+    .lesson-body p:first-child::first-letter {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 54px; float: left; line-height: 1; margin: 4px 10px 0 0;
+    }
+    .unit.river .lesson-body p:first-child::first-letter { color: var(--river); }
+
+    .feature-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      margin: 32px 0;
+    }
+    .feature-card {
+      background: var(--cream); border-radius: 14px;
+      padding: 24px; border: 1px solid var(--rule);
+    }
+    .feature-card .fc-num {
+      min-width: 32px; height: 32px; padding: 0 10px; border-radius: 16px;
+      background: var(--river); color: var(--cream);
+      display: inline-grid; place-items: center;
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 14px; margin-bottom: 16px;
+    }
+    .feature-card h4 { font-size: 20px; margin-bottom: 8px; color: var(--ink); }
+    .feature-card p { font-size: 16px; color: var(--ink-soft); margin: 0; }
+
+    .vocab {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 36px;
+      margin: 32px 0;
+      border: 1px solid var(--rule);
+    }
+    .vocab h3 {
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft); font-weight: 700; margin-bottom: 20px;
+    }
+    .vocab-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 8px 24px;
+    }
+    .vocab-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 16px;
+    }
+    .vocab-item b {
+      font-family: var(--font-display); font-weight: 700;
+      display: block; color: var(--ink); margin-bottom: 2px;
+    }
+    .vocab-item span { color: var(--ink-soft); font-size: 15px; line-height: 1.5; }
+
+    .fact {
+      display: grid; grid-template-columns: auto 1fr; gap: 20px;
+      background: var(--cream);
+      padding: 24px 28px; border-radius: 14px;
+      margin: 24px 0;
+      border-left: 5px solid var(--gold);
+    }
+    .fact-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold); color: white;
+      display: grid; place-items: center;
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 24px;
+    }
+    .fact h4 { font-size: 18px; margin-bottom: 4px; }
+    .fact p { margin: 0; font-size: 17px; color: var(--ink-soft); }
+
+    .stages-diagram {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      background: var(--cream); border-radius: 20px;
+      overflow: hidden; margin: 40px 0;
+      border: 1px solid var(--rule);
+    }
+    .stage-col { padding: 32px; }
+    .stage-col + .stage-col { border-left: 1px solid var(--rule); }
+    .stage-num {
+      display: inline-block;
+      padding: 4px 12px; border-radius: 6px;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 700; margin-bottom: 12px;
+      background: var(--river-soft); color: var(--river-deep);
+      font-family: var(--font-display);
+    }
+    .stage-col h4 { font-size: 22px; margin-bottom: 12px; }
+    .stage-col p { font-size: 16px; margin: 0 0 14px; color: var(--ink-soft); }
+    .stage-img {
+      aspect-ratio: 4/3; border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--rule); margin-bottom: 16px; background: var(--cream-2);
+    }
+    .stage-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .world-map-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+      margin: 32px 0;
+    }
+    .river-card {
+      background: var(--cream); border-radius: 14px;
+      overflow: hidden; border: 1px solid var(--rule);
+    }
+    .river-img {
+      aspect-ratio: 16/10; overflow: hidden;
+      border-bottom: 1px solid var(--rule); background: var(--cream-2);
+    }
+    .river-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .river-card-body { padding: 20px 24px; }
+    .river-card h4 { font-size: 22px; margin-bottom: 4px; }
+    .river-card .loc {
+      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 10px;
+    }
+    .river-card p { font-size: 16px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+    .river-stats {
+      display: flex; gap: 20px; margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--rule);
+    }
+    .stat b { display: block; font-family: var(--font-display); font-size: 18px; color: var(--river-deep); }
+    .stat span { font-size: 13px; color: var(--ink-soft); }
+
+    .figure { margin: 24px 0; }
+    .figure img {
+      display: block; width: 100%; height: auto;
+      border-radius: 14px; border: 1px solid var(--rule);
+      background: var(--cream);
+    }
+    .figure figcaption {
+      font-size: 14px; color: var(--ink-soft);
+      margin-top: 10px; line-height: 1.5;
+      font-style: italic;
+    }
+
+    .footer-band {
+      background: var(--ink); color: var(--cream);
+      padding: 64px 32px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-band h2 { color: var(--cream); font-size: 40px; margin-bottom: 12px; }
+    .footer-band p { color: rgba(251,246,236,0.7); max-width: 56ch; }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      margin-top: 40px;
+    }
+    .footer-col h4 {
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { padding: 6px 0; color: rgba(251,246,236,0.8); font-size: 16px; }
+    .credit {
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid rgba(251,246,236,0.15);
+      font-size: 14px; color: rgba(251,246,236,0.5);
+    }
+    .credit a { color: var(--gold); text-decoration: none; }
+
+    .check-your-learning {
+      background: var(--cream); border-radius: 20px;
+      padding: 36px; margin-top: 32px;
+      border: 1px solid var(--rule);
+    }
+    .check-your-learning h3 {
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 20px; font-weight: 700;
+    }
+    .check-q {
+      padding: 16px 0;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; align-items: start;
+    }
+    .check-q:first-of-type { border-top: none; padding-top: 0; }
+    .check-q .qn { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--gold); }
+    .check-q p { font-size: 17px; margin: 0; }
+
+    body.dys-mode {
+      --fs-body: 20px; --lh: 2; --cream: #FDF6E3;
+      letter-spacing: 0.03em; word-spacing: 0.15em;
+    }
+    body.dys-mode p, body.dys-mode li { letter-spacing: 0.03em; }
+    body.dark-mode {
+      --cream: #1a1f28; --cream-2: #242b36; --ink: #F4ECDB;
+      --ink-soft: #B8B0A0; --rule: #3a4452;
+    }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; padding: 40px 24px; }
+      .hero h1 { font-size: 44px; }
+      .unit-head { grid-template-columns: 1fr; }
+      .unit-meta { text-align: left; }
+      .lesson { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+      .feature-row, .stages-diagram, .world-map-grid { grid-template-columns: 1fr; }
+      .stage-col + .stage-col { border-left: none; border-top: 1px solid var(--rule); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .topnav { display: none; }
+      .unit { padding: 48px 24px; }
+      .unit h2 { font-size: 36px; }
+    }
+  </style>
 </head>
-<body class="page-geography">
-    <header class="site-header site-header--inner site-header--geography">
-        <a class="back-link" href="index.html">&larr; Home</a>
-        <h1>Rivers and Streams</h1>
-        <p class="subtitle">The journey of water from source to sea</p>
-    </header>
+<body>
 
-    <main>
-        <section class="hero">
-            <figure class="hero__figure">
-                <img src="images/river-hero.jpg" alt="A winding river flowing through a green valley" class="hero__image">
-                <figcaption class="hero__caption">Every river begins as a trickle and ends in the sea.</figcaption>
-            </figure>
-        </section>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">Y4</div>
+      <span>Year 4 Geography &middot; Rivers</span>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">&larr; Home</a>
+      <a href="#rivers" class="river">Rivers</a>
+      <a href="#glossary">Glossary</a>
+    </nav>
+    <div class="tools">
+      <button class="tool-btn" id="dys-toggle" title="Extra spacing and larger text">Easy Read</button>
+      <button class="tool-btn" id="dark-toggle" title="Darker background">Dim</button>
+    </div>
+  </div>
+</header>
 
-        <section class="prose">
-            <h2>What is a river?</h2>
-            <p>
-                A <strong>river</strong> is a large, flowing body of freshwater that moves across the land
-                and usually empties into a sea, lake, or another river. A <strong>stream</strong> is a
-                smaller flow of water &mdash; the kind you might be able to step across. Small streams
-                join together to become bigger streams, and bigger streams join together to make rivers.
-            </p>
-            <p>
-                Rivers shape the world around us. They carve valleys, carry soil, grow farmland, and
-                give homes to fish, birds, and insects. Every river tells a story of its journey from
-                high ground to the open sea.
-            </p>
-        </section>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Year 4 &middot; Geography</div>
+    <h1>Explore <span class="underline">rivers</span> &mdash; the veins of the land.</h1>
+    <p class="hero-lead">
+      This is your Year 4 Geography guidebook. You will travel from a mountain spring
+      all the way to the sea, find out how water shapes the land, and meet the great
+      rivers of the United Kingdom and the world.
+    </p>
+    <div class="hero-pills">
+      <span class="pill river">6 lessons</span>
+      <span class="pill river">Physical Geography</span>
+      <span class="pill river">Locational Geography</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="images/river-valley-hero.webp" alt="Hand-drawn map of a river valley: mountains, winding rivers, forests and villages.">
+  </div>
+</section>
 
-        <section class="water-cycle">
-            <h2>The water cycle</h2>
-            <p class="water-cycle__intro">
-                All the water in every river has been on a long trip &mdash; round and round, forever.
-                This is called the <strong>water cycle</strong>.
-            </p>
-            <ol class="water-cycle__steps">
-                <li>
-                    <span class="water-cycle__num">1</span>
-                    <h3>Evaporation</h3>
-                    <p>The sun heats water in oceans, lakes, and rivers. The water turns into an invisible gas called water vapour and rises into the sky.</p>
-                </li>
-                <li>
-                    <span class="water-cycle__num">2</span>
-                    <h3>Condensation</h3>
-                    <p>High up, the vapour cools and turns back into tiny droplets. Billions of droplets together make a cloud.</p>
-                </li>
-                <li>
-                    <span class="water-cycle__num">3</span>
-                    <h3>Precipitation</h3>
-                    <p>When the droplets get too heavy, they fall as rain, snow, sleet, or hail.</p>
-                </li>
-                <li>
-                    <span class="water-cycle__num">4</span>
-                    <h3>Collection</h3>
-                    <p>The water trickles into streams and rivers, or soaks into the ground. Eventually it reaches the sea &mdash; and the cycle begins again.</p>
-                </li>
-            </ol>
-        </section>
+<section class="unit river" id="rivers">
+  <div class="unit-inner">
 
-        <section class="journey">
-            <h2>The journey of a river</h2>
-            <p class="journey__intro">A river changes along its length. Geographers split its journey into three parts.</p>
-            <div class="journey__grid">
-                <article class="stage">
-                    <span class="stage__tag">Upper course</span>
-                    <h3>Source</h3>
-                    <p>
-                        The <strong>source</strong> is where a river begins. Often it is high up in the
-                        hills or mountains, fed by rain, melting snow, or a spring. The water is cold,
-                        clear, and fast-flowing. It cuts a narrow V-shaped valley as it rushes downhill.
-                    </p>
-                    <ul class="stage__features">
-                        <li>Fast water</li>
-                        <li>V-shaped valleys</li>
-                        <li>Waterfalls</li>
-                    </ul>
-                </article>
+    <div class="unit-head">
+      <div class="unit-num">R</div>
+      <div>
+        <div class="unit-term">Rivers</div>
+        <h2>Rivers shape the land.</h2>
+        <p class="unit-intro">
+          A river is a long stream of fresh water that flows over land. Rivers start high up
+          and travel all the way to the sea. They carve valleys, feed fields, and give homes
+          to fish, birds, and people. Let&rsquo;s follow a river from its birthplace to its end.
+        </p>
+      </div>
+      <div class="unit-meta">
+        <div class="term-label">6 lessons</div>
+        <div>Physical &amp; Locational Geography</div>
+      </div>
+    </div>
 
-                <article class="stage">
-                    <span class="stage__tag">Middle course</span>
-                    <h3>Tributaries and meanders</h3>
-                    <p>
-                        Other streams called <strong>tributaries</strong> join the river. Where two
-                        rivers meet is called a <strong>confluence</strong>. The river slows down and
-                        begins to swing from side to side, making wide loops called <strong>meanders</strong>.
-                    </p>
-                    <ul class="stage__features">
-                        <li>Tributaries</li>
-                        <li>Meanders</li>
-                        <li>Oxbow lakes</li>
-                    </ul>
-                </article>
+    <article class="lesson">
+      <div class="lesson-aside">
+        <div class="lesson-num">Lesson 01</div>
+        <h3>What is a river?</h3>
+        <div class="learn-box">
+          <h4>By the end you will&hellip;</h4>
+          <ul>
+            <li>Know what a river is.</li>
+            <li>Understand where a river begins.</li>
+            <li>Name the three stages of a river.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-body">
+        <p>
+          A river is fresh water that flows across the land in a long channel. Most rivers
+          begin high up in hills or mountains. The place where a river starts is called
+          the <b>source</b>. The place where it ends &mdash; usually at the sea or a lake &mdash; is
+          called the <b>mouth</b>.
+        </p>
+        <p>
+          Every river has a journey. Scientists split this journey into three parts,
+          called the <b>upper course</b>, the <b>middle course</b>, and the <b>lower course</b>.
+          Each part looks and behaves differently.
+        </p>
 
-                <article class="stage">
-                    <span class="stage__tag">Lower course</span>
-                    <h3>Mouth</h3>
-                    <p>
-                        The <strong>mouth</strong> is where the river meets the sea. The water is slow
-                        and wide, full of mud and sand it has carried from upstream. It may drop this
-                        load to build a fan-shaped <strong>delta</strong>, or open into a wide
-                        <strong>estuary</strong>.
-                    </p>
-                    <ul class="stage__features">
-                        <li>Flood plains</li>
-                        <li>Estuaries</li>
-                        <li>Deltas</li>
-                    </ul>
-                </article>
+        <div class="stages-diagram">
+          <div class="stage-col">
+            <span class="stage-num">Stage 1</span>
+            <h4>Upper Course</h4>
+            <div class="stage-img"><img src="images/upper-course.jpg" alt="Fast mountain stream running over rocks through a forested gorge."></div>
+            <p>Fast and narrow. Cuts a V-shaped valley high in the hills.</p>
+          </div>
+          <div class="stage-col">
+            <span class="stage-num">Stage 2</span>
+            <h4>Middle Course</h4>
+            <div class="stage-img"><img src="images/middle-course.jpg" alt="A river winding in gentle curves through Scottish moorland and hills."></div>
+            <p>Wider and slower. Bends in big curves called meanders.</p>
+          </div>
+          <div class="stage-col">
+            <span class="stage-num">Stage 3</span>
+            <h4>Lower Course</h4>
+            <div class="stage-img"><img src="images/lower-course.jpg" alt="A wide slow river meeting the sea at a sandy estuary."></div>
+            <p>Wide and slow. Flows into the sea, lake, or another river.</p>
+          </div>
+        </div>
+
+        <div class="fact">
+          <div class="fact-icon">!</div>
+          <div>
+            <h4>Did you know?</h4>
+            <p>The longest river in the UK is the <b>River Severn</b>. It flows for about 220 miles &mdash; further than the distance from London to Manchester.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <div class="lesson-aside">
+        <div class="lesson-num">Lesson 02</div>
+        <h3>Features of the Upper Course</h3>
+        <div class="learn-box">
+          <h4>By the end you will&hellip;</h4>
+          <ul>
+            <li>Know the water is fast at the start.</li>
+            <li>Understand how V-shaped valleys form.</li>
+            <li>Know the riverbed is made of rocks.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-body">
+        <p>
+          High in the hills, a river has just been born. The water is cold, fast, and full
+          of energy. As it rushes downhill, it carries small rocks and pebbles with it.
+          This wearing-away of the land is called <b>erosion</b>.
+        </p>
+        <p>
+          Over thousands of years, the fast water cuts a deep groove into the rock. The
+          sides of the groove are steep. This shape, like the letter V, is called a
+          <b>V-shaped valley</b>. When a hard layer of rock sits above a soft layer,
+          the river drops suddenly and makes a <b>waterfall</b>.
+        </p>
+
+        <div class="feature-row">
+          <div class="feature-card">
+            <div class="fc-num">1</div>
+            <h4>Waterfall</h4>
+            <p>Where the river drops over a cliff of hard rock.</p>
+          </div>
+          <div class="feature-card">
+            <div class="fc-num">2</div>
+            <h4>Rapids</h4>
+            <p>Fast, bumpy water tumbling over rocks.</p>
+          </div>
+          <div class="feature-card">
+            <div class="fc-num">3</div>
+            <h4>Gorge</h4>
+            <p>A deep, narrow valley with steep sides.</p>
+          </div>
+        </div>
+
+        <figure class="figure">
+          <img src="images/upper-features-diagram.png" alt="Hand-drawn diagram of upper course features: V-shaped valley, interlocking spurs, waterfall, plunge pool, gorge, rapids and potholes.">
+          <figcaption>Features of the upper course: fast-flowing water carves a V-shaped valley with waterfalls, rapids and gorges.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <div class="lesson-aside">
+        <div class="lesson-num">Lesson 03</div>
+        <h3>Features of the Middle Course</h3>
+        <div class="learn-box">
+          <h4>By the end you will&hellip;</h4>
+          <ul>
+            <li>Know the river is flatter and wider.</li>
+            <li>Understand why rivers meander.</li>
+            <li>Know the riverbed is sand and mud.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-body">
+        <p>
+          After the hills, the land flattens out. The river is no longer in a rush. It grows
+          wider and deeper. Because the water is slower, it starts to drop &mdash; or
+          <b>deposit</b> &mdash; the sand and mud it was carrying from the hills. This new
+          ground builds up on the inside of bends.
+        </p>
+        <p>
+          The river begins to curve from side to side in big loops. These loops are called
+          <b>meanders</b>. On the outside of each bend, the water still pushes hard and
+          wears the bank away. On the inside, it drops sand. Slowly, over many years,
+          meanders wriggle and move across the landscape.
+        </p>
+
+        <figure class="figure">
+          <img src="images/meander-diagram.png" alt="Three-stage diagram showing a meander developing, the neck being cut off, and an oxbow lake forming.">
+          <figcaption>How a meander turns into an oxbow lake. Outer banks erode; inner banks collect sand.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <div class="lesson-aside">
+        <div class="lesson-num">Lesson 04</div>
+        <h3>Features of the Lower Course</h3>
+        <div class="learn-box">
+          <h4>By the end you will&hellip;</h4>
+          <ul>
+            <li>Know the river is flat and slow.</li>
+            <li>Know the riverbed is mostly mud.</li>
+            <li>Understand what a floodplain is.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-body">
+        <p>
+          Near the end of its journey, the river is wide, slow, and full of silt. It is
+          close to the sea. The land on either side is very flat. When heavy rain falls
+          or snow melts, the river sometimes bursts its banks and spreads out across
+          this flat land. This area is called a <b>floodplain</b>.
+        </p>
+        <p>
+          Floodplains are some of the best farmland in the world. The mud and sand left
+          behind after a flood &mdash; called <b>sediment</b> &mdash; makes the soil very rich.
+          Ancient Egyptians built their whole civilisation along the floodplain of the
+          River Nile for exactly this reason.
+        </p>
+
+        <figure class="figure">
+          <img src="images/floodplain.png" alt="Aerial photograph of a river winding across a wide green floodplain to meet the sea at sunset.">
+          <figcaption>A floodplain where a river meets the sea. Rich silt makes this some of the best farmland in the country.</figcaption>
+        </figure>
+
+        <div class="fact">
+          <div class="fact-icon">?</div>
+          <div>
+            <h4>Key word</h4>
+            <p><b>Estuary</b> &mdash; the wide, tidal mouth of a river where fresh river water meets salty sea water.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <div class="lesson-aside">
+        <div class="lesson-num">Lesson 05</div>
+        <h3>Our local rivers</h3>
+        <div class="learn-box">
+          <h4>By the end you will&hellip;</h4>
+          <ul>
+            <li>Know where our local rivers are.</li>
+            <li>Locate rivers on a map.</li>
+            <li>Identify upper, middle, lower stages locally.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-body">
+        <p>
+          The United Kingdom has hundreds of rivers. Together they form the veins of the
+          country. Rivers gave us our oldest towns and cities &mdash; people always settled where
+          they could drink, wash, fish, and travel.
+        </p>
+
+        <figure class="figure">
+          <img src="images/uk-rivers-map.png" alt="Map of the UK&rsquo;s major rivers with a zoomed inset showing the River Ouzel near Pitstone.">
+          <figcaption>The UK&rsquo;s major rivers, with our nearest &mdash; the River Ouzel at Pitstone &mdash; highlighted.</figcaption>
+        </figure>
+
+        <div class="feature-row">
+          <div class="feature-card">
+            <div class="fc-num">UK</div>
+            <h4>River Thames</h4>
+            <p>Flows through London. 215 miles long.</p>
+          </div>
+          <div class="feature-card">
+            <div class="fc-num">UK</div>
+            <h4>River Severn</h4>
+            <p>The longest in the UK. 220 miles long.</p>
+          </div>
+          <div class="feature-card">
+            <div class="fc-num">UK</div>
+            <h4>River Trent</h4>
+            <p>Flows through the Midlands. 185 miles long.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <div class="lesson-aside">
+        <div class="lesson-num">Lesson 06</div>
+        <h3>Famous rivers of the world</h3>
+        <div class="learn-box">
+          <h4>By the end you will&hellip;</h4>
+          <ul>
+            <li>Locate famous rivers on a world map.</li>
+            <li>Know their main features.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson-body">
+        <p>
+          Rivers have carried whole civilisations on their backs. Four of the most famous
+          rivers in the world are below. Each one is longer than the entire length of Britain.
+        </p>
+
+        <div class="world-map-grid">
+          <div class="river-card">
+            <div class="river-img"><img src="images/nile.webp" alt="Aerial view of the River Nile flowing past a large town, with islands of green in the wide blue water."></div>
+            <div class="river-card-body">
+              <div class="loc">Africa &middot; 11 countries</div>
+              <h4>The Nile</h4>
+              <p>The longest river in the world. Flows north through the Sahara Desert into the Mediterranean Sea.</p>
+              <div class="river-stats">
+                <div class="stat"><b>6,650 km</b><span>length</span></div>
+                <div class="stat"><b>Egypt</b><span>famous for</span></div>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section class="glossary">
-            <h2>Key words</h2>
-            <dl class="glossary__list">
-                <div class="glossary__item">
-                    <dt>Source</dt>
-                    <dd>The place where a river starts.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Tributary</dt>
-                    <dd>A smaller river or stream that flows into a larger one.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Confluence</dt>
-                    <dd>The meeting point of two rivers.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Meander</dt>
-                    <dd>A curve or bend in a river.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Oxbow lake</dt>
-                    <dd>A curved lake left behind when a meander is cut off from a river.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Waterfall</dt>
-                    <dd>Water falling over an edge of hard rock.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Flood plain</dt>
-                    <dd>The flat land next to a river that floods when the river is high.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Estuary</dt>
-                    <dd>The wide part of a river where it meets the sea and saltwater mixes with fresh.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Delta</dt>
-                    <dd>A flat, fan-shaped area of land at the mouth of a river, made of mud and sand.</dd>
-                </div>
-                <div class="glossary__item">
-                    <dt>Mouth</dt>
-                    <dd>The place where a river ends.</dd>
-                </div>
-            </dl>
-        </section>
-
-        <section class="gallery">
-            <h2>Rivers of the world</h2>
-            <div class="gallery__grid">
-                <article class="card">
-                    <img src="images/nile.jpg" alt="The River Nile flowing through Egypt" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">The Nile</h3>
-                        <p class="card__meta">Africa &middot; 6,650 km</p>
-                        <p>One of the longest rivers in the world. It flows north through eleven countries and made farming possible in ancient Egypt.</p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="images/amazon.jpg" alt="The Amazon river winding through rainforest" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">The Amazon</h3>
-                        <p class="card__meta">South America &middot; 6,400 km</p>
-                        <p>Carries more water than any other river. Its rainforest is home to millions of plants and animals.</p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="images/yangtze.jpg" alt="The Yangtze river in China" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">The Yangtze</h3>
-                        <p class="card__meta">Asia &middot; 6,300 km</p>
-                        <p>The longest river in Asia. It flows through China and is an important route for ships and trade.</p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="images/thames.jpg" alt="The River Thames in London" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">The Thames</h3>
-                        <p class="card__meta">England &middot; 346 km</p>
-                        <p>Flows through London and past Windsor. It has been important for trade and travel for nearly two thousand years.</p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="images/mississippi.jpg" alt="The Mississippi river in the United States" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">The Mississippi</h3>
-                        <p class="card__meta">United States &middot; 3,770 km</p>
-                        <p>The great river of central North America. It carries water from more than thirty states all the way to the Gulf of Mexico.</p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="images/ganges.jpg" alt="The Ganges river in India" class="card__image">
-                    <div class="card__body">
-                        <h3 class="card__title">The Ganges</h3>
-                        <p class="card__meta">India &middot; 2,525 km</p>
-                        <p>Begins high in the Himalayan mountains and flows across northern India to a huge delta by the Bay of Bengal.</p>
-                    </div>
-                </article>
+          <div class="river-card">
+            <div class="river-img"><img src="images/amazon.png" alt="Map of the Amazon river basin across Brazil, Peru, Colombia and neighbours."></div>
+            <div class="river-card-body">
+              <div class="loc">South America &middot; 7 countries</div>
+              <h4>The Amazon</h4>
+              <p>Carries more water than any other river on Earth. Runs through the world&rsquo;s largest rainforest.</p>
+              <div class="river-stats">
+                <div class="stat"><b>6,400 km</b><span>length</span></div>
+                <div class="stat"><b>Brazil</b><span>famous for</span></div>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section class="prose">
-            <h2>Why rivers matter</h2>
-            <p>
-                People have lived by rivers for as long as there have been people. Rivers give us
-                <strong>drinking water</strong>, help us <strong>grow food</strong>, carry
-                <strong>boats and cargo</strong>, turn the wheels of <strong>mills and power stations</strong>,
-                and are homes for fish, otters, kingfishers, and dragonflies. Looking after our rivers
-                &mdash; keeping them clean and healthy &mdash; helps everything that lives along them.
-            </p>
-        </section>
-    </main>
+          <div class="river-card">
+            <div class="river-img"><img src="images/yangtze.webp" alt="A huge horseshoe bend on the Yangtze river in China, with turquoise water curling around green farmland at the foot of a mountain."></div>
+            <div class="river-card-body">
+              <div class="loc">Asia &middot; China</div>
+              <h4>The Yangtze</h4>
+              <p>The longest river in Asia. Home to pink dolphins and giant dams.</p>
+              <div class="river-stats">
+                <div class="stat"><b>6,300 km</b><span>length</span></div>
+                <div class="stat"><b>China</b><span>famous for</span></div>
+              </div>
+            </div>
+          </div>
 
-    <footer class="site-footer">
-        <p><a href="index.html">&larr; Back to home</a></p>
-    </footer>
+          <div class="river-card">
+            <div class="river-img"><img src="images/mississippi.png" alt="The Mississippi river in the United States."></div>
+            <div class="river-card-body">
+              <div class="loc">North America &middot; USA</div>
+              <h4>The Mississippi</h4>
+              <p>Splits the United States in half. Its delta forms a huge fan of land in the Gulf of Mexico.</p>
+              <div class="river-stats">
+                <div class="stat"><b>3,730 km</b><span>length</span></div>
+                <div class="stat"><b>USA</b><span>famous for</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="vocab">
+      <h3>Rivers &middot; Key Vocabulary</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item"><b>Source</b><span>The place where a river begins.</span></div>
+        <div class="vocab-item"><b>Mouth</b><span>Where a river ends, often the sea.</span></div>
+        <div class="vocab-item"><b>Tributary</b><span>A smaller river that joins a bigger one.</span></div>
+        <div class="vocab-item"><b>Meander</b><span>A big bend or curve in a river.</span></div>
+        <div class="vocab-item"><b>Erosion</b><span>Wearing the land away.</span></div>
+        <div class="vocab-item"><b>Deposition</b><span>Dropping sand and mud.</span></div>
+        <div class="vocab-item"><b>Sediment</b><span>Tiny bits of rock carried by water.</span></div>
+        <div class="vocab-item"><b>Floodplain</b><span>Flat land near a river that sometimes floods.</span></div>
+        <div class="vocab-item"><b>Riverbed</b><span>The ground at the bottom of a river.</span></div>
+        <div class="vocab-item"><b>River bank</b><span>The ground on either side of a river.</span></div>
+        <div class="vocab-item"><b>Landform</b><span>A natural shape on the Earth&rsquo;s surface.</span></div>
+        <div class="vocab-item"><b>Agriculture</b><span>Farming &mdash; growing food and keeping animals.</span></div>
+      </div>
+    </div>
+
+    <div class="check-your-learning">
+      <h3>Check your learning</h3>
+      <div class="check-q"><span class="qn">Q1</span><p>In your own words, what is a river?</p></div>
+      <div class="check-q"><span class="qn">Q2</span><p>Name the three stages of a river. Where is the water fastest?</p></div>
+      <div class="check-q"><span class="qn">Q3</span><p>What is the difference between <b>erosion</b> and <b>deposition</b>?</p></div>
+      <div class="check-q"><span class="qn">Q4</span><p>Why did people build towns and cities on floodplains?</p></div>
+      <div class="check-q"><span class="qn">Q5</span><p>What is the <b>source</b> of a river? And what is the <b>mouth</b>?</p></div>
+      <div class="check-q"><span class="qn">Q6</span><p>Explain how a <b>waterfall</b> is formed. Use the words &lsquo;hard rock&rsquo; and &lsquo;soft rock&rsquo;.</p></div>
+      <div class="check-q"><span class="qn">Q7</span><p>Draw a simple diagram of a <b>meander</b>. Label the outer bank, inner bank, and point bar.</p></div>
+      <div class="check-q"><span class="qn">Q8</span><p>How does a meander turn into an <b>oxbow lake</b>? Describe each step.</p></div>
+      <div class="check-q"><span class="qn">Q9</span><p>What is a <b>tributary</b>? Can you name one tributary of the River Thames?</p></div>
+      <div class="check-q"><span class="qn">Q10</span><p>What is the longest river in the United Kingdom? Roughly how long is it?</p></div>
+      <div class="check-q"><span class="qn">Q11</span><p>What is the name of our nearest river, and which stage is it in &mdash; upper, middle, or lower?</p></div>
+      <div class="check-q"><span class="qn">Q12</span><p>The Nile, Amazon, Yangtze, Mississippi &mdash; which continent does each belong to?</p></div>
+      <div class="check-q"><span class="qn">Q13</span><p>Why is the Amazon so important to the whole planet, not just South America?</p></div>
+      <div class="check-q"><span class="qn">Q14</span><p>What is an <b>estuary</b>? Can you think of a UK city built on one?</p></div>
+      <div class="check-q"><span class="qn">Q15</span><p>Give three reasons why rivers are useful to humans.</p></div>
+      <div class="check-q"><span class="qn">Q16</span><p>What can cause a river to <b>flood</b>? Give two different reasons.</p></div>
+      <div class="check-q"><span class="qn">Q17</span><p>If you threw a paper boat into our local river, where would it end up? Try to trace its journey.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer-band" id="glossary">
+  <div class="footer-inner">
+    <h2>The Year 4 River Unit at a glance</h2>
+    <p>One unit, one journey: from a tiny mountain spring all the way out to the sea. Along the way we learn what a river is, how it shapes the valleys and plains around it, and why people have always settled beside one.</p>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>The basics</h4>
+        <ul>
+          <li>What is a river?</li>
+          <li>The water cycle</li>
+          <li>Key words: source, mouth, tributary</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The three stages</h4>
+        <ul>
+          <li>Upper course &mdash; fast and narrow</li>
+          <li>Middle course &mdash; meanders</li>
+          <li>Lower course &mdash; floodplains</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rivers of the world</h4>
+        <ul>
+          <li>UK rivers and our local river</li>
+          <li>The Nile, Amazon, Yangtze, Mississippi</li>
+          <li>Why people settle beside rivers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="credit">
+      Year 4 Geography &middot; Rivers Unit &middot; National Curriculum aligned &middot; Built for curious readers. &middot; <a href="index.html">Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var dysBtn = document.getElementById('dys-toggle');
+  var darkBtn = document.getElementById('dark-toggle');
+  if (localStorage.getItem('dys') === '1') { document.body.classList.add('dys-mode'); dysBtn.classList.add('active'); }
+  if (localStorage.getItem('dark') === '1') { document.body.classList.add('dark-mode'); darkBtn.classList.add('active'); }
+  dysBtn.addEventListener('click', function() {
+    document.body.classList.toggle('dys-mode'); dysBtn.classList.toggle('active');
+    localStorage.setItem('dys', document.body.classList.contains('dys-mode') ? '1' : '0');
+  });
+  darkBtn.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode'); darkBtn.classList.toggle('active');
+    localStorage.setItem('dark', document.body.classList.contains('dark-mode') ? '1' : '0');
+  });
+</script>
+
 </body>
 </html>
