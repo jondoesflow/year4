@@ -1,0 +1,329 @@
+:root {
+    --color-bg: #f6efe2;
+    --color-surface: #fffaf0;
+    --color-ink: #2a241c;
+    --color-muted: #6b6151;
+    --color-accent: #8b3a1f;
+    --color-accent-soft: #c46a3e;
+    --color-jungle: #2f5c3d;
+    --color-stone: #a8926d;
+    --shadow-card: 0 6px 20px rgba(42, 36, 28, 0.12);
+    --radius: 14px;
+    --font-serif: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-accent);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: 1rem;
+    color: var(--color-jungle);
+}
+
+h3 {
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.site-header {
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, #efe2c6 0%, var(--color-bg) 100%);
+    border-bottom: 1px solid rgba(168, 146, 109, 0.3);
+}
+
+.site-header--inner {
+    text-align: left;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.subtitle {
+    color: var(--color-muted);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.site-footer {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(168, 146, 109, 0.3);
+    margin-top: 3rem;
+}
+
+.home-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.section-card {
+    display: block;
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    color: #fffaf0;
+    background: var(--color-jungle);
+    box-shadow: var(--shadow-card);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(42, 36, 28, 0.22);
+    text-decoration: none;
+}
+
+.section-card--maya {
+    background: linear-gradient(135deg, #8b3a1f 0%, #c46a3e 100%);
+}
+
+.section-card--rivers {
+    background: linear-gradient(135deg, #1f5a8b 0%, #3ea5c4 100%);
+}
+
+.section-card__label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+}
+
+.section-card__title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    color: #fffaf0;
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+}
+
+.section-card__desc {
+    margin: 0 0 2rem;
+    opacity: 0.92;
+    font-size: 1.05rem;
+}
+
+.section-card__cta {
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(255, 250, 240, 0.5);
+    padding-bottom: 0.15rem;
+}
+
+.hero {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.hero__figure {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background: var(--color-stone);
+}
+
+.hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+}
+
+.hero__caption {
+    padding: 0.75rem 1.25rem;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    font-style: italic;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+}
+
+.prose {
+    max-width: 780px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    font-size: 1.05rem;
+}
+
+.prose p {
+    margin: 0 0 1rem;
+}
+
+.timeline {
+    max-width: 880px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.timeline__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 3px solid var(--color-stone);
+}
+
+.timeline__list li {
+    position: relative;
+    padding: 0.5rem 0 1.5rem 1.5rem;
+}
+
+.timeline__list li::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 1rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 4px var(--color-bg);
+}
+
+.timeline__era {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    margin-right: 0.75rem;
+}
+
+.timeline__dates {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+.timeline__list p {
+    margin: 0.25rem 0 0;
+}
+
+.gallery {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+}
+
+.card__image {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: var(--color-stone);
+}
+
+.card__body {
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.card__title {
+    margin: 0 0 0.25rem;
+}
+
+.card__meta {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 2rem 1rem 1.5rem;
+    }
+    .section-card {
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+}
