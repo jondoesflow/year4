@@ -478,6 +478,14 @@ footer.foot a { color: var(--terracotta-deep); font-weight: 700; }
 .subject-card.geography h2, .subject-card.geography p, .subject-card.geography .subject-label, .subject-card.geography .subject-cta { color: var(--ink); }
 .subject-card.geography .subject-label { background: rgba(0,0,0,0.15); }
 .subject-card.geography .subject-cta { border-bottom-color: rgba(42,30,18,0.4); }
+.subject-card.computing  { background: linear-gradient(135deg, #2d3a5a 0%, #0f1626 100%); }
+.subject-card.art        { background: linear-gradient(135deg, #c1366c 0%, #7a1f44 100%); }
+.subject-card.music      { background: linear-gradient(135deg, #7a4abf 0%, #3d2360 100%); }
+.subject-card.dt         { background: linear-gradient(135deg, #4a6680 0%, #25384a 100%); }
+.subject-card.french     { background: linear-gradient(135deg, #2c5fa8 0%, #c1342f 100%); }
+.subject-card.re         { background: linear-gradient(135deg, #6b3aa0 0%, #2f1850 100%); }
+.subject-card.citizenship{ background: linear-gradient(135deg, #2f7a55 0%, #144030 100%); }
+.subject-card.rshe       { background: linear-gradient(135deg, #d96a8c 0%, #823050 100%); }
 
 /* ===== Featured card (Mayan inside History, Rivers inside Geography) ===== */
 .featured {
